@@ -50,4 +50,55 @@ public class NoticeController {
 		
 		return mv;
 	}
+	
+	@GetMapping("delete")
+	public String setDelete(BoardDTO boardDTO) throws Exception{
+		
+		int result = noticeService.setDelete(boardDTO);
+		System.out.println(result);
+		
+		return "redirect:./list";
+	}
+	
+	/*
+	 * @GetMapping("insert") public ModelAndView setInsert() { ModelAndView mv = new
+	 * ModelAndView(); mv.setViewName("board/insert");
+	 * 
+	 * return mv; }
+	 */
+	
+	@GetMapping("insert")
+	public String setInsert() {
+		return "board/insert";
+	}
+
+	
+	@PostMapping("insert")
+	public String setInsert(BoardDTO boardDTO) throws Exception{
+		
+		int result = noticeService.setInsert(boardDTO);
+		System.out.println(result);
+		
+		return "redirect:./list";
+	}
+	
+	@GetMapping("update")
+	public ModelAndView getSelect(BoardDTO boardDTO, ModelAndView mv) throws Exception {
+		
+		mv.setViewName("board/update");
+		
+		boardDTO = noticeService.getSelect(boardDTO);
+		mv.addObject("dto", boardDTO);
+		
+		return mv;
+	}
+	
+	@PostMapping("update")
+	public String setUpdate(BoardDTO boardDTO) throws Exception{
+		
+		int result = noticeService.setUpdate(boardDTO);
+		System.out.println(result);
+		
+		return "redirect:./list";
+	}
 }

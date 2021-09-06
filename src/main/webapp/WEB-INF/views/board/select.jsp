@@ -18,6 +18,7 @@
 			<h1>REGDATE : ${dto.regDate}</h1>
 			<h1>HITS : ${dto.hits}</h1>
 			<h1><a href="./delete?num=${dto.num}">삭제하기</a></h1>
+			<h1><a href="./update?num=${dto.num}">수정하기</a></h1>
 		</div>
 		
 	</body>

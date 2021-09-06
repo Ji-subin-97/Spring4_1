@@ -7,41 +7,42 @@
   		<!-- Total Count 구하기 -->
   		<select id="getCount" resultType="Long" parameterType="Pager">
   			SELECT COUNT(NUM) FROM NOTICE
-	  		<!-- 	WHERE 
+	  		 	WHERE 
 		            <choose>
 		            	<when test="kind == 'num'">
-		            		bookNumber
+		            		NUM
 		            	</when>
-		            	<when test="kind == 'name'">
-		            		bookName
+		            	<when test="kind == 'title'">
+		            		TITLE
 		            	</when>
 		            	<otherwise>
-		            		bookRate
+		            		CONTENTS
 		            	</otherwise>
 		            </choose>
-	            LIKE '%' || #{search} || '%' -->
+	            LIKE '%' || #{search} || '%'
   		</select>
 		<select id="getList" resultType="NoticeDTO" parameterType="Pager">
 			SELECT * FROM
 			    (SELECT ROWNUM R, BK.* FROM
 			        (SELECT *
 			            FROM NOTICE
-<!-- 			            WHERE 
-			            <choose>
-			            	<when test="kind == 'num'">
-			            		bookNumber
-			            	</when>
-			            	<when test="kind == 'name'">
-			            		bookName
-			            	</when>
-			            	<otherwise>
-			            		bookRate
-			            	</otherwise>
-			            </choose>
-			            LIKE '%' || #{search} || '%' -->
-			            ORDER BY NUM DESC
+ 			            WHERE 
+				            <choose>
+				            	<when test="kind == 'num'">
+				            		NUM
+				            	</when>
+				            	<when test="kind == 'title'">
+				            		TITLE
+				            	</when>
+				            	<otherwise>
+				            		CONTENTS
+				            	</otherwise>
+				            </choose>
+				            LIKE '%' || #{search} || '%'
+				            ORDER BY NUM DESC
 			        ) 
-			        BK)
+			        BK
+			     )
 			WHERE R between #{startRow} and #{lastRow}
 		</select>
 		
@@ -51,7 +52,7 @@
 	
 		<insert id="setInsert" parameterType="BoardDTO">
 			INSERT INTO NOTICE(NUM,TITLE,CONTENTS,WRITER,REGDATE,HITS)
-			VALUES(NOTICE_SEQ.NEXTVAL,#{title},#{contents},#{writer},SYSDATE,0)
+			VALUES(NOTICE_NUM_SEQ.NEXTVAL,#{title},#{contents},#{writer},SYSDATE,0)
 		</insert>
 	
 		<delete id="setDelete" parameterType="BoardDTO">
