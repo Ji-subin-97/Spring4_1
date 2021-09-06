@@ -51,23 +51,55 @@
 		<table class="table table-dark table-striped">
 		  <thead>
 		    <tr>
-		      <th scope="col">NUM</th>
-		      <th scope="col">TITLE</th>
-		      <th scope="col">WRITER</th>
-		      <th scope="col">REGDATE</th>
-		      <th scope="col">HITS</th>
+		    	<c:choose>
+		    		<c:when test="${board eq 'NOTICE'}">
+	    			  <th scope="col">NUM</th>
+				      <th scope="col">TITLE</th>
+				      <th scope="col">WRITER</th>
+				      <th scope="col">REGDATE</th>
+				      <th scope="col">HITS</th>
+		    		</c:when>
+		    		<c:otherwise>
+		    		  <th scope="col">NUM</th>
+				      <th scope="col">TITLE</th>
+				      <th scope="col">WRITER</th>
+				      <th scope="col">REGDATE</th>
+				      <th scope="col">HITS</th>
+				      <th scope="col">REF</th>
+				      <th scope="col">STEP</th>
+				      <th scope="col">DEPTH</th>
+		    		</c:otherwise>
+		    	</c:choose>
 		    </tr>
 		  </thead>
 		  <tbody>
-		  	<c:forEach items="${list}" var="dto">
-			    <tr>
-			      <th scope="row">${dto.num}</th>
-			      <td><a href="./select?num=${dto.num}">${dto.title}</a></td>
-			      <td>${dto.writer}</td>
-			      <td>${dto.regDate}</td>
-			      <td>${dto.hits}</td>
-			    </tr>
-		   </c:forEach>
+		  		<c:choose>
+		  			<c:when test="${board eq 'NOTICE'}">
+				  		<c:forEach items="${list}" var="dto">
+						    <tr>
+						      <th scope="row">${dto.num}</th>
+						      <td><a href="./select?num=${dto.num}">${dto.title}</a></td>
+						      <td>${dto.writer}</td>
+						      <td>${dto.regDate}</td>
+						      <td>${dto.hits}</td>
+						    </tr>
+						</c:forEach>
+		  			</c:when>
+				  	<c:otherwise>
+				  		<c:forEach items="${list}" var="dto">
+					    <tr>
+					      <th scope="row">${dto.num}</th>
+					      <td><a href="./select?num=${dto.num}">${dto.title}</a></td>
+					      <td>${dto.writer}</td>
+					      <td>${dto.regDate}</td>
+					      <td>${dto.hits}</td>
+					      <td>${dto.ref}</td>
+					      <td>${dto.step}</td>
+					      <td>${dto.depth}</td>
+					    </tr>
+					   </c:forEach>
+			  		</c:otherwise>
+		  		</c:choose>
 		  </tbody>
 		</table>
 		<!-- Paging -->
