@@ -24,7 +24,7 @@ public class NoticeController {
 	
 	@ModelAttribute("board")
 	public String getBoard() {
-		return "notice";
+		return "NOTICE";
 	}
 	
 	
