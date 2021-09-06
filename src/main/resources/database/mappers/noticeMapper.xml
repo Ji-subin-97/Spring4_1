@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.subin.p1.board.notice.NoticeDAO">
+  		<!-- Total Count 구하기 -->
+  		<select id="getCount" resultType="Long" parameterType="Pager">
+  			SELECT COUNT(NUM) FROM NOTICE
+	  		<!-- 	WHERE 
+		            <choose>
+		            	<when test="kind == 'num'">
+		            		bookNumber
+		            	</when>
+		            	<when test="kind == 'name'">
+		            		bookName
+		            	</when>
+		            	<otherwise>
+		            		bookRate
+		            	</otherwise>
+		            </choose>
+	            LIKE '%' || #{search} || '%' -->
+  		</select>
+		<select id="getList" resultType="NoticeDTO" parameterType="Pager">
+			SELECT * FROM
+			    (SELECT ROWNUM R, BK.* FROM
+			        (SELECT *
+			            FROM NOTICE
+<!-- 			            WHERE 
+			            <choose>
+			            	<when test="kind == 'num'">
+			            		bookNumber
+			            	</when>
+			            	<when test="kind == 'name'">
+			            		bookName
+			            	</when>
+			            	<otherwise>
+			            		bookRate
+			            	</otherwise>
+			            </choose>
+			            LIKE '%' || #{search} || '%' -->
+			            ORDER BY NUM DESC
+			        ) 
+			        BK)
+			WHERE R between #{startRow} and #{lastRow}
+		</select>
+		
+		<select id="getSelect" parameterType="BoardDTO" resultType="NoticeDTO">
+			SELECT * FROM NOTICE WHERE NUM=#{num}
+		</select>
+	
+		<insert id="setInsert" parameterType="BoardDTO">
+			INSERT INTO NOTICE(NUM,TITLE,CONTENTS,WRITER,REGDATE,HITS)
+			VALUES(NOTICE_SEQ.NEXTVAL,#{title},#{contents},#{writer},SYSDATE,0)
+		</insert>
+	
+		<delete id="setDelete" parameterType="BoardDTO">
+			DELETE FROM NOTICE WHERE NUM=#{num}
+		</delete>
+		
+		<update id="setUpdate" parameterType="BoardDTO">
+			UPDATE NOTICE SET TITLE=#{title},CONTENTS=#{contents},WRITER=#{writer} 
+			WHERE NUM=#{num}
+		</update>
+
+
+  
+  </mapper>
