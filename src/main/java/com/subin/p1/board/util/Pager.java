@@ -12,8 +12,10 @@ public class Pager {
 	private Long startRow; // 시작번호
 	private Long lastRow;  // 끝번호
 	
-	private Long pn; // page number 한 페이지에 출력할 글의 갯수
-	private Long perPage; // 한 페이지에 출력할 pn의 갯수
+	private Long pn; 
+	// page number 한 페이지에 출력할 글의 갯수
+	private Long perPage; 
+	// 한 페이지에 출력할 pn의 갯수
 	private Long perBlock;
 	
 	private Long startNum;
@@ -33,7 +35,7 @@ public class Pager {
 		System.out.println(totalPage);
 		//3. totalBlock 구하기
 		Long totalBlock = totalPage/this.getPerBlock();
-		if(totalPage/this.getPerBlock() != 0) {
+		if(totalPage%this.getPerBlock() != 0) {
 			totalBlock += 1;
 		}
 		
@@ -53,11 +55,7 @@ public class Pager {
 		
 		this.startNum = (curBlock-1)*this.getPerBlock()+1;
 		this.lastNum = curBlock*this.getPerBlock();
-		
-		while(curBlock > totalBlock) {
-			totalBlock++;
-		}
-		
+
 		//6. curBlock이 마지막 block 일때 lastNum 변경
 		if(curBlock == totalBlock) {
 			this.lastNum = totalPage;
@@ -112,9 +110,7 @@ public class Pager {
 	}
 	
 	public Long getPerBlock() {
-		if(this.perBlock==null || this.perBlock==0) {
-			this.perBlock = 5L;
-		}
+		this.perBlock = 5L;
 		return perBlock;
 	}
 
