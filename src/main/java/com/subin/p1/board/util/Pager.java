@@ -30,6 +30,7 @@ public class Pager {
 			totalPage += 1;
 		}
 		
+		System.out.println(totalPage);
 		//3. totalBlock 구하기
 		Long totalBlock = totalPage/this.getPerBlock();
 		if(totalPage/this.getPerBlock() != 0) {
