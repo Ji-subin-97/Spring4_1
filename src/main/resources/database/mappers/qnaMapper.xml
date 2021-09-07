@@ -54,7 +54,7 @@
 	
 	<select id="setInsert" parameterType="BoardDTO">
 		INSERT INTO QNA (NUM, TITLE, CONTENTS, WRITER, REGDATE, HITS, REF, STEP, DEPTH)
-		VALUES (QNA_NUM_SEQ.nextval, #{title}, #{contents}, #{writer}, SYSDATE, 0, 0, 0, 0)
+		VALUES (QNA_NUM_SEQ.nextval, #{title}, #{contents}, #{writer}, SYSDATE, 0, qna_num_seq.currval, 0, 0)
 	</select>
 	
 	<delete id="setDelete" parameterType="BoardDTO">
