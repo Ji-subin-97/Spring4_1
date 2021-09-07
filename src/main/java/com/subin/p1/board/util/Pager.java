@@ -7,11 +7,14 @@ public class Pager {
 	
 	//////////////////////////////////////////////
 	
+	
+	
 	private Long startRow; // 시작번호
 	private Long lastRow;  // 끝번호
 	
-	private Long pn; // page number
-	private Long perPage;
+	private Long pn; // page number 한 페이지에 출력할 글의 갯수
+	private Long perPage; // 한 페이지에 출력할 pn의 갯수
+	private Long perBlock;
 	
 	private Long startNum;
 	private Long lastNum;
@@ -28,8 +31,8 @@ public class Pager {
 		}
 		
 		//3. totalBlock 구하기
-		Long totalBlock = totalPage/5;
-		if(totalPage/5 != 0) {
+		Long totalBlock = totalPage/this.getPerBlock();
+		if(totalPage/this.getPerBlock() != 0) {
 			totalBlock += 1;
 		}
 		
@@ -38,24 +41,35 @@ public class Pager {
 			this.setPn(totalPage);
 		}
 		
-		Long curBlock = this.getPn()/5;
-		if(this.getPn()%5 !=0) {
+		Long curBlock = this.getPn()/this.getPerBlock();
+		if(this.getPn()%this.getPerBlock() !=0) {
 			curBlock += 1;
 		}
 		
 		//5. curBlock으로 시작번호와 마지막번호 구하기
-		this.startNum = (curBlock-1)*5+1;
-		this.lastNum = curBlock*5;
+		System.out.println("1 :" + curBlock);
+		System.out.println("2 :" + totalBlock);
 		
+		this.startNum = (curBlock-1)*this.getPerBlock()+1;
+		this.lastNum = curBlock*this.getPerBlock();
+		
+		while(curBlock > totalBlock) {
+			totalBlock++;
+		}
+		
+		//6. curBlock이 마지막 block 일때 lastNum 변경
 		if(curBlock == totalBlock) {
 			this.lastNum = totalPage;
 		}
 	}
 	
+	//------------- RowNum 계산 ----------------------
 	public void makeRow() {
 		this.startRow = (this.getPn()-1)*this.getPerPage()+1;
 		this.lastRow = this.getPn()*this.getPerPage();
 	}
+	
+	//-------------- Setter, Getter-------------------
 	
 	public Long getStartRow() {
 		return startRow;
@@ -72,7 +86,8 @@ public class Pager {
 	public void setLastRow(Long lastRow) {
 		this.lastRow = lastRow;
 	}
-
+	
+	// Parameter 처리
 	public Long getPn() {
 		if(this.pn==null || this.pn<=0) {
 			this.pn = 1L;
@@ -95,6 +110,17 @@ public class Pager {
 		this.perPage = perPage;
 	}
 	
+	public Long getPerBlock() {
+		if(this.perBlock==null || this.perBlock==0) {
+			this.perBlock = 5L;
+		}
+		return perBlock;
+	}
+
+	public void setPerBlock(Long perBlock) {
+		this.perBlock = perBlock;
+	}
+
 	public Long getStartNum() {
 		return startNum;
 	}

@@ -17,8 +17,12 @@ public class NoticeService implements BoardService {
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		Long totalCount = noticeDAO.getCount(pager);
+
 		pager.makeNum(totalCount);
 		pager.makeRow();
+		
+		System.out.println(pager.getStartNum());
+		System.out.println(pager.getLastNum());
 		
 		return noticeDAO.getList(pager);
 	}
