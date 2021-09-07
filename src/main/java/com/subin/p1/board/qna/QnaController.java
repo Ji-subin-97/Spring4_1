@@ -104,5 +104,15 @@ public class QnaController {
 		mv.setViewName("board/reply");
 		return mv;
 	}
+	
+	@PostMapping("reply")
+	public ModelAndView setReply(QnaDTO qnaDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = qnaService.setReply(qnaDTO);
+		
+		mv.setViewName("redirect:./list");
+		
+		return mv;
+	}
 
 }

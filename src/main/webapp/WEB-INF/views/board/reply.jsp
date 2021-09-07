@@ -12,9 +12,10 @@
 	
 		<c:import url="../temp/nav.jsp"></c:import>
 		
-		<h1>Insert Page 입니다.</h1>
-		<form action="./insert" method="POST" class="col-md-4 mx-auto my-0">
+		<h1>${board} Reply Page 입니다.</h1>
+		<form action="./reply" method="POST" class="col-md-4 mx-auto my-0">
 			<div class="container-fluid">
+					<input type="hidden" name="num" value="${param.num}">
 					<table class="table table-dark table-striped" style="text-align:center">
 						<tr>
 							<td>제목</td><td><input type="text" name="title"></td>

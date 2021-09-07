@@ -41,7 +41,7 @@
 			            	</otherwise>
 			            </choose>
 			            LIKE '%' || #{search} || '%'
-			            ORDER BY NUM DESC
+			            ORDER BY REF DESC, STEP ASC
 		        ) 
 		        BK
 		     )
@@ -65,5 +65,14 @@
 		UPDATE QNA SET TITLE=#{title},CONTENTS=#{contents},WRITER=#{writer} 
 		WHERE NUM=#{num}
 	</update>
+	
+	<update id="setReplyUpdate" parameterType="QnaDTO">
+		UPDATE QNA SET STEP = STEP + 1 WHERE REF = #{ref} AND STEP > #{step}
+	</update>
+	
+	<insert id="setReply" parameterType="QnaDTO">
+		INSERT INTO QNA (NUM, TITLE, CONTENTS, WRITER, REGDATE, HITS, REF, STEP, DEPTH)
+		VALUES (QNA_NUM_SEQ.nextval, #{title}, #{contents}, #{writer}, SYSDATE, 0, #{ref}, #{step}, #{depth})
+	</insert>
   
  </mapper>
