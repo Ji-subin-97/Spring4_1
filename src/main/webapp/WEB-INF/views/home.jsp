@@ -9,17 +9,29 @@
 <html>
 	<head>
 		<title>Index Page</title>
-		<script type="text/javascript">
-			alert('Hello World');
-			
-		</script>
+		<link href="./resources/css/home.css" rel="stylesheet">
 	</head>
 	<c:import url="./temp/header.jsp"></c:import>
 	<body>
-		<script type="text/javascript">
-			console.log('body Script');
-		</script>
+		
 		<c:import url="./temp/nav.jsp"></c:import>
-		<h1>Home Page 입니다.</h1>
+		
+		<h1 class="c1">Home Page 입니다.</h1>
+		
+		<h1 id="d1">Other Home Page 입니다.</h1>
+		
+		<div id="d2">
+			<h3>In Div</h3>
+		</div>
+	
+		
+		<img id ="d3" alt="" src="./resources/images/01.jpg" class="c1" width="200px" height="300px">
+		
+		<div>
+			<button onclick="fn1()">Click</button>
+		</div>
+		
+		<script type="text/javascript" src="./resources/js/home.js"></script>
+		<script type="text/javascript" src="./resources/js/function_1.js"></script>
 	</body>
 </html>
