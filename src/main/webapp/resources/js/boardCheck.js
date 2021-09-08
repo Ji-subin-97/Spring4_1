@@ -1,40 +1,45 @@
 /**
  * 
  */
+ const btn = document.getElementById("btn");
  
- let frm_submit = function(){
-	frm.submit();
-}
- 
- let fn1 = function(){
+ btn.addEventListener("click", function(){
+	const title = document.getElementById("title");
+	const writer = document.getElementById("writer");
+	const frm = document.getElementById("frm");
+	const t1 = document.getElementById("t_1");
+	const w1 = document.getElementById("w_1");
+	t1.innerHTML="";
+	w1.innerHTML="";
 	
 	let t = title.value;
- 	let w = writer.value;
- 	let check = false;
-	if(t == "" || w == ""){
-	}else{
-		check = true;
+	let w = writer.value;
+	
+	let check=true;
+	
+	if(t == ""){
+		check=false;
+		t1.innerHTML="필수 입력";
 	}
 	
-	if(check == true){
-		alert(check);
-		frm_submit;
-	}else{
-		t_check.innerHTML="필수 입력"
+	if(w == ""){
+		check=false;
+		w1.innerHTML="필수 입력";
 	}
 	
-	
-/*	alert(title.getAttribute("value"));
-	alert(writer.getAttribute("value"));*/
-}
+	if(check){
+		frm.submit();
+	}else {
+		alert('필수 입력...');
+	}
 
- const submit = document.getElementById("submit");
- submit.addEventListener("click", fn1);
- 
- const title = document.getElementById("title");
- const writer = document.getElementById("writer");
- const t_check = document.getElementById("title_check");
- const frm = document.getElementById("frm");
+	//1
+/*	if(t != "" && w != ""){
+		alert(true);
+	}else {
+		alert(false);
+	}*/
+
 
  
  

@@ -34,7 +34,7 @@
 							<td>작성자</td><td><input id="writer" type="text" name="writer"></td>
 						</tr>
 						<tr>
-							<td colspan="2"><input id="submit" type="submit" value="작성하기"></td>
+							<td colspan="2"><button id="submit" type="button">작성하기</button></td>
 						</tr>
 					</table>
 			</div>
