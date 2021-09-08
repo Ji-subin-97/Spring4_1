@@ -3,12 +3,20 @@
  */
  
  let fn1 = function(){
-	alert("okay");
-/*	alert(title.value);
-	alert(writer.value);*/
 	
-	alert(title.getAttribute("value"));
-	alert(writer.getAttribute("value"));
+	let t = title.value;
+ 	let w = writer.value;
+ 	
+	alert("okay");
+	if(t == "" || w ==""){
+		alert("false");
+	}else{
+		alert("true");
+	}
+
+	
+/*	alert(title.getAttribute("value"));
+	alert(writer.getAttribute("value"));*/
 }
  
  const submit = document.getElementById("submit");
@@ -16,5 +24,8 @@
  
  const title = document.getElementById("title");
  const writer = document.getElementById("writer");
+ 
+
+ 
  
  
