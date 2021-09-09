@@ -78,7 +78,7 @@
 			      <th scope="row">${dto.num}</th>
 			      <%-- <td><a class="c1" href="./select?num=${dto.num}">${dto.title}</a></td> --%>
 			      <td>
-			      	<span class="c1" id="id${i.index}">
+			      	<span class="c1" id="${i.index}">
 			      		<c:if test="${board eq 'QNA'}">
 				      		<c:catch>
 				      			<c:forEach begin="1" end="${dto.depth}">
@@ -89,7 +89,7 @@
 			      		${dto.title}
 			      	</span>
 			      </td>
-			      <td>${dto.writer}</td>
+			      <td id="w${i.index}">${dto.writer}</td>
 			      <td>${dto.regDate}</td>
 			      <td>${dto.hits}</td>
 			      <c:if test="${board eq 'QNA'}">

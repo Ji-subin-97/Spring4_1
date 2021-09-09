@@ -7,7 +7,9 @@
  
  for(let s of c1){
 	s.addEventListener('click', function(){
-		alert("!!");
+		let num = s.id;
+		num = document.getElementById('w' + num);
+		alert(num.innerHTML);
 	})
 }
  
