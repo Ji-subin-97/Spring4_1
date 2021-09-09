@@ -11,7 +11,8 @@
         <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}">Home</a>
         <a class="nav-link" href="${pageContext.request.contextPath}/notice/list">Notice</a>
         <a class="nav-link" href="${pageContext.request.contextPath}/qna/list">QNA</a>
-        
+        <a class="nav-link" href="${pageContext.request.contextPath}/member/check">Join</a>
+        <a class="nav-link" href="${pageContext.request.contextPath}/member/login">Login</a>
         
         <!-- <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a> -->
       </div>

@@ -9,10 +9,6 @@
 <html>
 	<head>
 		<title>Index Page</title>
-		<script type="text/javascript">
-			alert('Hello World');
-			
-		</script>
 	</head>
 	<c:import url="./temp/header.jsp"></c:import>
 	<body>
