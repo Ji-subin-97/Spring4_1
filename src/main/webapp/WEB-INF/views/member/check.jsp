@@ -11,5 +11,41 @@
 	<body>
 		<c:import url="../temp/nav.jsp"></c:import>
 		<h1>Check Page</h1>
+		
+		<div class="container-fluid">
+			<div class="form-check">
+			  <input class="chk" type="checkbox" value="" id="flexCheckDefault">
+			  <label class="form-check-label" for="flexCheckDefault">
+			    Check ALL
+			  </label>
+			</div>
+			<div class="form-check">
+			  <input class="chk" type="checkbox" value="" id="flexCheckDefault">
+			  <label class="form-check-label" for="flexCheckDefault">
+			    약관 1
+			  </label>
+			</div>
+			<div class="form-check">
+			  <input class="chk" type="checkbox" value="" id="flexCheckDefault">
+			  <label class="form-check-label" for="flexCheckDefault">
+			    약관 2
+			  </label>
+			</div>
+			  <div class="form-check">
+			  <input class="chk" type="checkbox" value="" id="flexCheckDefault">
+			  <label class="form-check-label" for="flexCheckDefault">
+			    약관 3
+			  </label>
+			</div>
+			<div class="form-check">
+			  <input class="chk" type="checkbox" value="" id="flexCheckDefault">
+			  <label class="form-check-label" for="flexCheckDefault">
+			    약관 4
+			  </label>
+			</div>
+		</div>
+		
+		<!-- 자바 스크립트 선언 부분 -->
+		<script type="text/javascript" src="../resources/js/member_check.js"></script>
 	</body>
 </html>
