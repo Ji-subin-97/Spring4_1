@@ -16,4 +16,12 @@ public class MemberJoin {
 		
 		return mv;
 	}
+	
+	@GetMapping("join")
+	public ModelAndView join() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/join");
+		
+		return mv;
+	}
 }
