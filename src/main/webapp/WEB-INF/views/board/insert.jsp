@@ -7,6 +7,11 @@
 		<meta charset="UTF-8">
 		<title>Insert</title>
 		<c:import url="../temp/header.jsp"></c:import>
+		<style type="text/css">
+			.er{
+				color: red;
+			}
+		</style>
 	</head>
 	<body>
 	
