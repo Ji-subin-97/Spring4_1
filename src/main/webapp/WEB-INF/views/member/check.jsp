@@ -44,7 +44,7 @@
 			  </label>
 			</div>
 			
-			<button id="btn">동의 하기</button>
+			<button id="btn">회원 가입</button>
 			
 		</div>
 		
