@@ -35,5 +35,13 @@
 			</c:choose>	
 		</div>
 		
+		<div>
+			<input type="checkbox" class="c1" value="1">
+			<input type="checkbox" class="c1" value="2">
+			<input type="checkbox" class="c1" value="3">
+			<input type="checkbox" class="c1" value="4">
+		</div>
+		
+		<script type="text/javascript" src="../resources/js/select.js"></script>
 	</body>
 </html>

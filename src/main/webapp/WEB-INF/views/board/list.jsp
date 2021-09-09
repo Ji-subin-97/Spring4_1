@@ -78,7 +78,7 @@
 			      <th scope="row">${dto.num}</th>
 			      <%-- <td><a class="c1" href="./select?num=${dto.num}">${dto.title}</a></td> --%>
 			      <td>
-			      	<span class="c1" id="${i.index}">
+			      	<span class="c1" data-writer-num="${i.index}">
 			      		<c:if test="${board eq 'QNA'}">
 				      		<c:catch>
 				      			<c:forEach begin="1" end="${dto.depth}">
