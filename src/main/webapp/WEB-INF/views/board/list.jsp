@@ -73,10 +73,22 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-	  		<c:forEach items="${list}" var="dto">
+	  		<c:forEach items="${list}" var="dto" varStatus="i">
 			    <tr>
 			      <th scope="row">${dto.num}</th>
-			      <td><a class="c1" href="./select?num=${dto.num}">${dto.title}</a></td>
+			      <%-- <td><a class="c1" href="./select?num=${dto.num}">${dto.title}</a></td> --%>
+			      <td>
+			      	<span class="c1" id="id${i.index}">
+			      		<c:if test="${board eq 'QNA'}">
+				      		<c:catch>
+				      			<c:forEach begin="1" end="${dto.depth}">
+				      				--
+				      			</c:forEach>
+				      		</c:catch>
+			      		</c:if>
+			      		${dto.title}
+			      	</span>
+			      </td>
 			      <td>${dto.writer}</td>
 			      <td>${dto.regDate}</td>
 			      <td>${dto.hits}</td>
@@ -86,7 +98,7 @@
 			      	<td>${dto.depth}</td>
 			      </c:if>
 			    </tr>
-			</c:forEach>
+			   	</c:forEach>
 		  </tbody>
 		</table>
 		<!-- Paging -->
