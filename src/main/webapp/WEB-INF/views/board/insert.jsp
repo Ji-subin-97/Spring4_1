@@ -13,7 +13,31 @@
 		<c:import url="../temp/nav.jsp"></c:import>
 		
 		<h1>Insert Page 입니다.</h1>
-		<form id="frm" action="./insert" method="POST" class="col-md-6 mx-auto my-0" >
+		<div class="container-fluid">
+	
+				<form id="frm" class="col-md-6 mx-auto" action="./insert" method="post" >
+				  <div class="mb-3">
+				    <label for="title" class="form-label">TITLE</label>
+				    <input type="text" class="form-control" name="title" id="title" placeholder="Enter Title">
+				    <div id="t_1" class="er"></div>
+				  </div>
+				  
+				  <div class="mb-3">
+				    <label for="writer" class="form-label">Writer</label>
+				    <input type="text" class="form-control" name="writer" id="writer" placeholder="Enter Writer">
+				    <div id="w_1" class="er"></div>
+				  </div>
+				  
+				  <div class="mb-3">
+				   <label for="exampleFormControlTextarea1" class="form-label">Contents</label>
+		  			<textarea class="form-control" cols=""  name="contents" id="exampleFormControlTextarea1" rows="6"></textarea>
+				  </div>
+				 	
+				  <button id="btn" type="button" class="btn btn-primary">ADD</button>
+				</form>
+			
+		</div>
+		<!-- <form id="frm" action="./insert" method="POST" class="col-md-6 mx-auto my-0" >
 			<div class="container-fluid">
 					<table class="table table-dark table-striped" style="text-align:center">
 						<tr>
@@ -39,7 +63,7 @@
 					</table>
 			</div>
 		</form>
-		
+		 -->
 	<script type="text/javascript" src="../resources/js/boardCheck.js"></script>
 	</body>
 </html>
