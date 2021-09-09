@@ -73,41 +73,20 @@
 		    </tr>
 		  </thead>
 		  <tbody>
-		  		<c:choose>
-		  			<c:when test="${board eq 'NOTICE'}">
-				  		<c:forEach items="${list}" var="dto">
-						    <tr>
-						      <th scope="row">${dto.num}</th>
-						      <td><a href="./select?num=${dto.num}">${dto.title}</a></td>
-						      <td>${dto.writer}</td>
-						      <td>${dto.regDate}</td>
-						      <td>${dto.hits}</td>
-						    </tr>
-						</c:forEach>
-		  			</c:when>
-				  	<c:otherwise>
-				  		<c:forEach items="${list}" var="dto">
-					    <tr>
-					      <th scope="row">${dto.num}</th>
-					      <td><a href="./select?num=${dto.num}">
-					      
-					      <c:catch>
-						      <c:forEach begin="1" end="${dto.depth}">
-						      	★★
-						      </c:forEach>
-						  </c:catch>
-					      
-					      ${dto.title}</a></td>
-					      <td>${dto.writer}</td>
-					      <td>${dto.regDate}</td>
-					      <td>${dto.hits}</td>
-					      <td>${dto.ref}</td>
-					      <td>${dto.step}</td>
-					      <td>${dto.depth}</td>
-					    </tr>
-					   </c:forEach>
-			  		</c:otherwise>
-		  		</c:choose>
+	  		<c:forEach items="${list}" var="dto">
+			    <tr>
+			      <th scope="row">${dto.num}</th>
+			      <td><a class="c1" href="./select?num=${dto.num}">${dto.title}</a></td>
+			      <td>${dto.writer}</td>
+			      <td>${dto.regDate}</td>
+			      <td>${dto.hits}</td>
+			      <c:if test="${board eq 'QNA'}">
+			      	<td>${dto.ref}</td>
+			      	<td>${dto.step}</td>
+			      	<td>${dto.depth}</td>
+			      </c:if>
+			    </tr>
+			</c:forEach>
 		  </tbody>
 		</table>
 		<!-- Paging -->
@@ -144,9 +123,10 @@
 			</nav>
 		
 		<a href="./insert" class="btn btn-outline-primary">글 작성하기</a>
+		<button id="btn">CLICK</button>
 	</div>
 	
 	
-
+	<script type="text/javascript" src="../resources/js/list.js"></script>
 </body>
 </html>
