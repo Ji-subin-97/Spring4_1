@@ -38,9 +38,15 @@
 			  </label>
 			</div>
 			<div class="form-check">
-			  <input class="checks" type="checkbox" id="flexCheckDefault">
+			  <input class="checks_skip" type="checkbox" id="flexCheckDefault">
 			  <label class="form-check-label" for="flexCheckDefault">
-			    약관 4
+			    약관 4 (필수 x)
+			  </label>
+			</div>
+			<div class="form-check">
+			  <input class="checks_skip" type="checkbox" id="flexCheckDefault">
+			  <label class="form-check-label" for="flexCheckDefault">
+			    약관 5 (필수 x)
 			  </label>
 			</div>
 			

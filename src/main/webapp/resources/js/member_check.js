@@ -1,4 +1,5 @@
 const checks = document.getElementsByClassName("checks");
+const checks_skip = document.getElementsByClassName("checks_skip");
 const all = document.getElementById("all");
 const btn = document.getElementById("btn");
 
@@ -7,11 +8,17 @@ all.addEventListener('click', function(){
 	
 	if(all.checked){
 		for(let c of checks){
-		c.checked = true;
+			for(let c2 of checks_skip){
+				c.checked = true;
+				c2.checked = true;
+			}
 		}
 	}else{
 		for(let c of checks){
-		c.checked = false;
+			for(let c2 of checks_skip){
+				c.checked = false;
+				c2.checked = false;
+			}
 		}
 	}	
 });

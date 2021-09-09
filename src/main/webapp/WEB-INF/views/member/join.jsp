@@ -24,6 +24,10 @@
 			    <label for="exampleInputPassword1" class="form-label">비밀번호</label>
 			    <input type="password" class="form-control" id="exampleInputPassword1">
 			  </div>
+			  <div class="col-md-6 mb-3 mx-auto">
+			    <label for="exampleInputPassword1" class="form-label">이름</label>
+			    <input type="password" class="form-control" id="exampleInputPassword1">
+			  </div>
 			   <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputPassword1" class="form-label">이메일</label>
 			    <input type="password" class="form-control" id="exampleInputPassword1">
