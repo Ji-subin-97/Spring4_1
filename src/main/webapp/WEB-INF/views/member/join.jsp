@@ -18,6 +18,7 @@
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputEmail1" class="form-label">아이디</label>
 			    <input type="text" id="ids" name="id" class="form-control">
+			    <button type="button" id="idCheck">ID 중복확인</button>
 			    <div id="idResult"></div>
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto">
