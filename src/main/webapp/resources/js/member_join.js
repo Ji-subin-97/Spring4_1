@@ -4,18 +4,26 @@
  /*const put = document.getElementsByClassName("put");
 const btn = document.getElementById('btn')
 const pws = document.getElementsByClassName("pw");
-const frm = document.getElementById("frm");
-const ids = document.getElementById("ids");*/
+const frm = document.getElementById("frm");*/
+const ids = document.getElementById("ids");
 const idResult = document.getElementById("idResult");
+const pwResult = document.getElementById("pwResult");
 
-ids.addEventListener('keyup', function(){
+ids.addEventListener('blur', function(){
 	
-	if(document.frm.id.value.trim().length>=6){
-		idResult.innerHTML="올바른 ID.";
+	if(document.frm.id.value.trim().length<6){
+		ids.focus();
 	}else{
-		idResult.innerHTML="ID는 6글자 이상이여야 합니다.";
+	
 	}
 	
+});
+
+document.frm.pw_check.addEventListener('blur', function(){
+	
+	if(document.frm.pw.value != document.frm.pw_check.value){
+		pwResult.innerHTML="비밀번호가 일치하지 않습니다.";
+	}
 });
 
 /*ids.addEventListener('blur', function(){
