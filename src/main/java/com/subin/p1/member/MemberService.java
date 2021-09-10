@@ -12,4 +12,8 @@ public class MemberService {
 	public MemberDTO getIDCheck(MemberDTO memberDTO) throws Exception{
 		return memberDAO.getIDCheck(memberDTO);
 	}
+	
+	public MemberDTO getLogin(MemberDTO memberDTO) throws Exception{
+		return memberDAO.getLogin(memberDTO);
+	}
 }

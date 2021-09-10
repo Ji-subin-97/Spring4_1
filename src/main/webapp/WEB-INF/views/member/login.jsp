@@ -12,7 +12,7 @@
 		<c:import url="../temp/nav.jsp"></c:import>
 		<h1>Login Page</h1>
 		<div class="container-fluid">
-			<form action="join" method="post" name="frm" onsubmit="return checkForm()">
+			<form action="login" method="post" name="frm">
 			
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputEmail1" class="form-label">아이디</label>

@@ -15,4 +15,8 @@ public class MemberDAO {
 	public MemberDTO getIDCheck(MemberDTO memberDTO) throws Exception{
 		return sql_Sec.selectOne(NAMESPACE + "getIDCheck", memberDTO);
 	}
+	
+	public MemberDTO getLogin(MemberDTO memberDTO) throws Exception{
+		return sql_Sec.selectOne(NAMESPACE + "getLogin", memberDTO);
+	}
 }

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -18,6 +19,21 @@ public class MemberController {
 	public ModelAndView login() throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("member/login");
+		
+		return mv;
+	}
+	
+	@PostMapping("login")
+	public ModelAndView login(MemberDTO memberDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		memberDTO = memberService.getLogin(memberDTO);
+		if(memberDTO != null) {
+			System.out.println("로그인 성공");
+		}else {
+			System.out.println("로그인 실패");
+		}
+
+		mv.setViewName("redirect:../");
 		
 		return mv;
 	}

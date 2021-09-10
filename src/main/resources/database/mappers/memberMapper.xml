@@ -9,4 +9,8 @@
   		SELECT ID FROM MEMBER WHERE id = #{id}
   	</select>
   	
+  	<select id="getLogin" parameterType="MemberDTO" resultType="MemberDTO">
+  		SELECT * FROM MEMBER WHERE id = #{id} and pw = #{pw}
+  	</select>
+  	
   </mapper>
