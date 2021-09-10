@@ -14,7 +14,7 @@
 		
 		<!-- Form 시작 -->
 		<div class="container-fluid">
-			<form action="" method="post">
+			<form action="join" method="post" name="frm" onsubmit="return checkForm()">
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputEmail1" class="form-label">아이디</label>
 			    <input type="text" name="id" class="form-control">
@@ -26,7 +26,7 @@
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputPassword1" class="form-label">비밀번호 확인</label>
-			    <input type="password" name="pw" class="form-control">
+			    <input type="password" name="pw_check" class="form-control">
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputPassword1" class="form-label">이름</label>
@@ -36,17 +36,9 @@
 			    <label for="exampleInputPassword1" class="form-label">이메일</label>
 			    <input type="email" name="email" class="form-control">
 			  </div>
-			  <div class="col-md-6 mx-auto">
-				  <div class="col-md-3 mx-auto d-inline-block">
-				    <label for="exampleInputPassword1" class="form-label">휴대폰 번호</label>
-				    <input type="text" name="phonenum" class="form-control">
-				  </div> -
-				  <div class="col-md-3 mx-auto d-inline-block">
-				    <input type="text" name="phonenum" class="form-control">
-				  </div> -
-				  <div class="col-md-3 mx-auto d-inline-block">
-				    <input type="text" name="phonenum" class="form-control">
-				  </div>
+			  <div class="col-md-6 mb-3 mx-auto">
+				<label for="exampleInputPassword1" class="form-label">휴대폰 번호</label>
+				<input type="text" name="ph" class="form-control">
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto form-check">
 			    <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -60,5 +52,7 @@
 		</div>
 		
 		<!-- Form 끝 -->
+		
+		<script type="text/javascript" src="../resources/js/member_join.js"></script>
 	</body>
 </html>
