@@ -27,7 +27,7 @@
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputPassword1" class="form-label">비밀번호 확인</label>
 			    <input type="password" name="pw_check" class="form-control">
-			    <div id="pwResult"></div>
+			    <div id="pwResult" style=""></div>
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputPassword1" class="form-label">이름</label>

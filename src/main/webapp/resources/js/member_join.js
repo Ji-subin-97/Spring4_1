@@ -22,7 +22,11 @@ ids.addEventListener('blur', function(){
 document.frm.pw_check.addEventListener('blur', function(){
 	
 	if(document.frm.pw.value != document.frm.pw_check.value){
+		pwResult.style.color = "red";
 		pwResult.innerHTML="비밀번호가 일치하지 않습니다.";
+	}else{
+		pwResult.style.color = "green";
+		pwResult.innerHTML="비밀번호가 일치 합니다.";
 	}
 });
 
