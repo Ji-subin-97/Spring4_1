@@ -17,7 +17,13 @@ function checkForm(){
 		return false;
 	}
 	
-	if(!document.frm.pw_check.value){
+	if(document.frm.pw.value.length<6){
+		alert("비밀번호는 6자리 이상이여야합니다.");
+		document.frm.pw.focus();
+		return false;
+	}
+	
+	if(document.frm.pw.value != document.frm.pw_check.value){
 		alert("비밀번호가 일치하는지 확인해주세요.");
 		document.frm.pw_check.focus();
 		return false;
@@ -42,16 +48,42 @@ function checkForm(){
 	}
 }
 
+//-------------------------------------------------------
 
 const put = document.getElementsByClassName("put");
 const btn = document.getElementById('btn')
-const pw = document.getElementsByClassName("pw");
+const pws = document.getElementsByClassName("pw");
+const frm = document.getElementById("frm");
 
 btn.addEventListener('click', function(){
 	//비어있는것들 검사
 	let ce = checkEmpty(put);
+	//두개값이 같은지 검사
+	let ce2 = checkEqual(pws[0].value, pws[1].value);
+	
+	let cl= checkLength();
+	
+	if(ce&&ce2&&c1){
+		frm.submit();
+	}else{
+		alert("필수 입력");
+	}
 	
 });
+
+function checkLength(){
+	let l = pws[0].value.trim().length;
+	
+	if(l>=6){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function checkEqual(check1, check2){
+	return check1 == check2;
+}
 
 function checkEmpty(puts){
 	let result = true;
@@ -61,4 +93,6 @@ function checkEmpty(puts){
 			break;
 		}
 	}
+	
+	return result;
 }
