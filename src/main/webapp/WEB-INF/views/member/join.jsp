@@ -40,7 +40,7 @@
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto">
 				<label for="exampleInputPassword1" class="form-label">휴대폰 번호</label>
-				<input type="text" name="ph" class="form-control">
+				<input type="tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="ph" class="form-control">
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto form-check">
 			    <input type="checkbox" class="form-check-input" id="exampleCheck1">

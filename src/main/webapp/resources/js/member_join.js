@@ -8,6 +8,11 @@ const frm = document.getElementById("frm");*/
 const ids = document.getElementById("ids");
 const idResult = document.getElementById("idResult");
 const pwResult = document.getElementById("pwResult");
+const idCheck = document.getElementById("idCheck");
+
+idCheck.addEventListener('click', function(){
+	open("./idCheck?id="+ids.value, "", "width=400, height=200, top=200, left=300");
+});
 
 ids.addEventListener('change', function(){
 	alert('change');

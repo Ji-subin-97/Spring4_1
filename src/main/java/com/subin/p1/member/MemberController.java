@@ -14,6 +14,14 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@GetMapping("login")
+	public ModelAndView login() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/login");
+		
+		return mv;
+	}
+	
 	@GetMapping("check")
 	public ModelAndView check() throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -35,8 +43,10 @@ public class MemberController {
 		ModelAndView mv = new ModelAndView();
 		memberDTO = memberService.getIDCheck(memberDTO);
 		System.out.println("id 중복 체크");
+		
 		mv.addObject("IDCheck", memberDTO);
-		mv.setViewName(null);
+		
+		mv.setViewName("member/idCheck");
 		
 		return mv;
 	}
