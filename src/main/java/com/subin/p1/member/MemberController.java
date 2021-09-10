@@ -1,11 +1,13 @@
 package com.subin.p1.member;
 
+
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.SessionAttribute;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -15,6 +17,28 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@GetMapping("myPage")
+	public ModelAndView mypage() throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("member/myPage");
+		
+		return mv;
+	}
+	
+	@GetMapping("logout")
+	public ModelAndView logout(HttpSession session) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		//1. session 삭제
+		//session.removeAttribute("member");
+		
+		//2. session의 시간을 0으로 만들어버림
+		session.invalidate();
+		
+		mv.setViewName("redirect:../");
+		
+		return mv;
+	}
+	
 	@GetMapping("login")
 	public ModelAndView login() throws Exception{
 		ModelAndView mv = new ModelAndView();
@@ -23,12 +47,15 @@ public class MemberController {
 		return mv;
 	}
 	
+	
 	@PostMapping("login")
-	public ModelAndView login(MemberDTO memberDTO) throws Exception{
+	public ModelAndView login(MemberDTO memberDTO, HttpSession session) throws Exception{
+
 		ModelAndView mv = new ModelAndView();
 		memberDTO = memberService.getLogin(memberDTO);
 		if(memberDTO != null) {
 			System.out.println("로그인 성공");
+			session.setAttribute("member", memberDTO);   // redirect 해도 일정한 시간동안 계속 살아있음
 		}else {
 			System.out.println("로그인 실패");
 		}
