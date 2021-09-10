@@ -9,15 +9,11 @@ const ids = document.getElementById("ids");
 const idResult = document.getElementById("idResult");
 const pwResult = document.getElementById("pwResult");
 
-ids.addEventListener('blur', function(){
-	
-	if(document.frm.id.value.trim().length<6){
-		ids.focus();
-	}else{
-	
-	}
-	
+ids.addEventListener('change', function(){
+	alert('change');
 });
+
+
 
 document.frm.pw_check.addEventListener('blur', function(){
 	
