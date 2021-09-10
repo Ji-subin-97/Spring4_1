@@ -5,7 +5,8 @@
   
   <mapper namespace="com.subin.p1.member.MemberDAO">
   
-  	<select id="getID">
+  	<select id="getIDCheck" parameterType="MemberDTO" resultType="MemberDTO">
+  		SELECT ID FROM MEMBER WHERE id = #{id}
   	</select>
   	
   </mapper>

@@ -10,6 +10,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.subin.p1.board.qna.QnaDAO;
 import com.subin.p1.board.qna.QnaDTO;
+import com.subin.p1.member.MemberDAO;
+import com.subin.p1.member.MemberDTO;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/**/*-context.xml"})
@@ -18,7 +20,10 @@ public class MyJuntiTest {
 	@Autowired
 	private QnaDAO qnaDAO;
 	
-	@Test
+	@Autowired
+	private MemberDAO memberDAO;
+	
+	//@Test
 	public void test() throws Exception{
 		QnaDTO qnaDTO = new QnaDTO();
 		for(int i=0;i<200;i++) {
@@ -36,5 +41,17 @@ public class MyJuntiTest {
 		System.out.println("Finish=====================================");
 	}
 	
+	
+	@Test
+	public void test2() throws Exception{
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setId("t1");
+		memberDTO.setPw("t1");
+		
+		memberDTO = memberDAO.getIDCheck(memberDTO);
+		
+		assertNotNull(memberDTO);
+		
+	}
 	
 }

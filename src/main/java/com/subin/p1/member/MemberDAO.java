@@ -12,7 +12,7 @@ public class MemberDAO {
 	private final String NAMESPACE = "com.subin.p1.member.MemberDAO.";
 	
 	
-	public void getID() {
-		return sql_Sec.selectOne(NAMESPACE + "getID", NAMESPACE);
+	public MemberDTO getIDCheck(MemberDTO memberDTO) throws Exception{
+		return sql_Sec.selectOne(NAMESPACE + "getIDCheck", memberDTO);
 	}
 }
