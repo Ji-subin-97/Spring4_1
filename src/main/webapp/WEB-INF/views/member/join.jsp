@@ -17,8 +17,8 @@
 			<form action="join" method="post" name="frm" onsubmit="return checkForm()">
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputEmail1" class="form-label">아이디</label>
-			    <input type="text" name="id" class="form-control">
-			    <div id="emailHelp" class="form-text">아이디 ~~~~~~~</div>
+			    <input type="text" id="ids" name="id" class="form-control">
+			    <div id="idResult"></div>
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputPassword1" class="form-label">비밀번호</label>

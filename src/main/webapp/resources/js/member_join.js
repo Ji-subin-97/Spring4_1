@@ -1,6 +1,70 @@
 /**
  * 
  */
+ /*const put = document.getElementsByClassName("put");
+const btn = document.getElementById('btn')
+const pws = document.getElementsByClassName("pw");
+const frm = document.getElementById("frm");
+const ids = document.getElementById("ids");*/
+const idResult = document.getElementById("idResult");
+
+ids.addEventListener('keyup', function(){
+	
+	if(document.frm.id.value.trim().length>=6){
+		idResult.innerHTML="올바른 ID.";
+	}else{
+		idResult.innerHTML="ID는 6글자 이상이여야 합니다.";
+	}
+	
+});
+
+/*ids.addEventListener('blur', function(){
+	
+	ids.value = "";
+});*/
+
+/*btn.addEventListener('click', function(){
+	//비어있는것들 검사
+	let ce = checkEmpty(put);
+	//두개값이 같은지 검사
+	let ce2 = checkEqual(pws[0].value, pws[1].value);
+	
+	let cl= checkLength();
+	
+	if(ce&&ce2&&c1){
+		frm.submit();
+	}else{
+		alert("필수 입력");
+	}
+	
+});
+
+function checkLength(){
+	let l = pws[0].value.trim().length;
+	
+	if(l>=6){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function checkEqual(check1, check2){
+	return check1 == check2;
+}
+
+function checkEmpty(puts){
+	let result = true;
+	for(r of puts){
+		if(r.value.trim()==""){
+			result = false;
+			break;
+		}
+	}
+	
+	return result;
+}
+*/
  
 function checkForm(){
 	
@@ -8,6 +72,12 @@ function checkForm(){
 		alert("아이디를 입력해주세요.");
 		document.frm.id.focus();
 		document.frm.id.value = "";
+		return false;
+	}
+	
+	if(document.frm.id.value.trim().length<6){
+		alert("아이디는 6글자 이상이여야 합니다.");
+		document.frm.id.focus();
 		return false;
 	}
 	
@@ -50,49 +120,3 @@ function checkForm(){
 
 //-------------------------------------------------------
 
-const put = document.getElementsByClassName("put");
-const btn = document.getElementById('btn')
-const pws = document.getElementsByClassName("pw");
-const frm = document.getElementById("frm");
-
-btn.addEventListener('click', function(){
-	//비어있는것들 검사
-	let ce = checkEmpty(put);
-	//두개값이 같은지 검사
-	let ce2 = checkEqual(pws[0].value, pws[1].value);
-	
-	let cl= checkLength();
-	
-	if(ce&&ce2&&c1){
-		frm.submit();
-	}else{
-		alert("필수 입력");
-	}
-	
-});
-
-function checkLength(){
-	let l = pws[0].value.trim().length;
-	
-	if(l>=6){
-		return true;
-	}else{
-		return false;
-	}
-}
-
-function checkEqual(check1, check2){
-	return check1 == check2;
-}
-
-function checkEmpty(puts){
-	let result = true;
-	for(r of puts){
-		if(r.value.trim()==""){
-			result = false;
-			break;
-		}
-	}
-	
-	return result;
-}
