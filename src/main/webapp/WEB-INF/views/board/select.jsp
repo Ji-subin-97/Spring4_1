@@ -19,8 +19,10 @@
 					<h1>WRITER : ${dto.writer}</h1>
 					<h1>REGDATE : ${dto.regDate}</h1>
 					<h1>HITS : ${dto.hits}</h1>
-					<h1><a href="./delete?num=${dto.num}">삭제하기</a></h1>
-					<h1><a href="./update?num=${dto.num}">수정하기</a></h1>
+					<c:if test="${dto.writer eq member.id}">
+						<h1><a href="./delete?num=${dto.num}">삭제하기</a></h1>
+						<h1><a href="./update?num=${dto.num}">수정하기</a></h1>
+					</c:if>
 				</c:when>
 				<c:otherwise>
 					<h1>TITLE : ${dto.title}</h1>
@@ -28,8 +30,10 @@
 					<h1>WRITER : ${dto.writer}</h1>
 					<h1>REGDATE : ${dto.regDate}</h1>
 					<h1>HITS : ${dto.hits}</h1>
-					<h1><a href="./delete?num=${dto.num}">삭제하기</a></h1>
-					<h1><a href="./update?num=${dto.num}">수정하기</a></h1>
+					<c:if test="${dto.writer eq member.id}">
+						<h1><a href="./delete?num=${dto.num}">삭제하기</a></h1>
+						<h1><a href="./update?num=${dto.num}">수정하기</a></h1>
+					</c:if>
 					<h1><a href="./reply?num=${dto.num}">답글달기</a></h1>
 				</c:otherwise>
 			</c:choose>	

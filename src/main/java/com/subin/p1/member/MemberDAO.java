@@ -19,4 +19,16 @@ public class MemberDAO {
 	public MemberDTO getLogin(MemberDTO memberDTO) throws Exception{
 		return sql_Sec.selectOne(NAMESPACE + "getLogin", memberDTO);
 	}
+	
+	public int setJoin(MemberDTO memberDTO) throws Exception{
+		return sql_Sec.insert(NAMESPACE + "setJoin", memberDTO);
+	}
+	
+	public int setUpdate(MemberDTO memberDTO) throws Exception{
+		return sql_Sec.update(NAMESPACE + "setUpdate", memberDTO);
+	}
+	
+	public int setDelete(MemberDTO memberDTO) throws Exception{
+		return sql_Sec.delete(NAMESPACE + "setDelete", memberDTO);
+	}
 }

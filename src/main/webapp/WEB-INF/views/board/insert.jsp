@@ -27,7 +27,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td>작성자</td><td><input type="text" name="writer"></td>
+							<td>작성자</td><td><input type="text" name="writer" value="${member.id}" readonly></td>
 						</tr>
 						<tr>
 							<td colspan="2"><input type="submit" value="작성하기"></td>

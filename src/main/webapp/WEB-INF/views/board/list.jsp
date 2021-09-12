@@ -21,6 +21,7 @@
 <body>
 	<c:import url="../temp/nav.jsp"></c:import>
 	<h1>${board} Board List Page</h1>
+	<h1>${empty member} Login?</h1>
 	
 	<div class="col-md-7 my-2 mx-auto">	
 	
@@ -143,7 +144,9 @@
 			  </ul>
 			</nav>
 		
-		<a href="./insert" class="btn btn-outline-primary">글 작성하기</a>
+		<c:if test="${not empty member}">
+			<a href="./insert" class="btn btn-outline-primary">글 작성하기</a>
+		</c:if>	
 	</div>
 	
 	
