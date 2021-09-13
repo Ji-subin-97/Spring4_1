@@ -12,14 +12,6 @@
 	</head>
 	<c:import url="./temp/header.jsp"></c:import>
 	<body>
-		<script type="text/javascript">
-			console.log('body Script');
-			
-			if(${param.check eq "yes"}){
-				alert("회원가입 성공");
-			}
-			
-		</script>
 		<c:import url="./temp/nav.jsp"></c:import>
 		<h1>Home Page 입니다.</h1>
 		

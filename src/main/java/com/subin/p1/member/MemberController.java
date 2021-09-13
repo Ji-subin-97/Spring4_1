@@ -124,7 +124,16 @@ public class MemberController {
 	public ModelAndView join(MemberDTO memberDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = memberService.setJoin(memberDTO);
-		mv.setViewName("redirect:../?check=yes");
+		
+		
+		String message = "회원가입실패";
+		if(result>0) {
+			message = "회원가입성공";
+		}
+		
+		mv.addObject("msg", message);
+		mv.addObject("url", "../");
+		mv.setViewName("common/result");
 		
 		return mv;
 	}
