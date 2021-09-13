@@ -27,5 +27,6 @@
 		
 		</c:if>
 		
+		<h1>Conflict</h1>
 	</body>
 </html>
