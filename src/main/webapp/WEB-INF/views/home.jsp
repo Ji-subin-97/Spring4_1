@@ -17,5 +17,6 @@
 		</script>
 		<c:import url="./temp/nav.jsp"></c:import>
 		<h1>Home Page 입니다.</h1>
+		<h1>Member Branch</h1>
 	</body>
 </html>
