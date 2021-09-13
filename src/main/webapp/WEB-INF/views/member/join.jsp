@@ -14,41 +14,46 @@
 		
 		<!-- Form 시작 -->
 		<div class="container-fluid">
-			<form action="join" method="post" name="frm" onsubmit="return checkForm()">
+			<form action="join" method="post" id="frm">
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputEmail1" class="form-label">아이디</label>
-			    <input type="text" id="ids" name="id" class="form-control">
+			    <input type="text" id="id" name="id" class="form-control put">
 			    <button type="button" id="idCheck">ID 중복확인</button>
 			    <div id="idResult"></div>
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputPassword1" class="form-label">비밀번호</label>
-			    <input type="password" name="pw" class="form-control">
+			    <input type="password" id="pw" name="pw" class="form-control put">
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputPassword1" class="form-label">비밀번호 확인</label>
-			    <input type="password" name="pw_check" class="form-control">
+			    <input type="password" id="pw_check" name="pw_check" class="form-control put">
 			    <div id="pwResult" style=""></div>
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputPassword1" class="form-label">이름</label>
-			    <input type="text" name="name" class="form-control">
+			    <input type="text" id="name" name="name" class="form-control put">
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputPassword1" class="form-label">이메일</label>
-			    <input type="email" name="email" class="form-control">
+			    <input type="email" id="email" name="email" class="form-control put">
 			  </div>
 			  <div class="col-md-6 mb-3 mx-auto">
 				<label for="exampleInputPassword1" class="form-label">휴대폰 번호</label>
-				<input type="tel" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="phone" class="form-control">
+				<input type="tel" id="phone" pattern="[0-9]{3}-[0-9]{4}-[0-9]{4}" name="phone" class="form-control put">
 			  </div>
-			  <div class="col-md-6 mb-3 mx-auto form-check">
-			    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-			    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+			  
+			  <div class="col-md-6 mb-3 mx-auto" id="files">
+			  	<button type="button" id="add" class="btn btn-info">File Add</button>
+			  </div>
+			  
+			  <!-- input file 추가 영역 -->
+			  <div id="addResult">
+			  
 			  </div>
 			  
 			  <div class="col-md-6 mx-auto">
-			  	<button type="submit" class="btn btn-primary">Submit</button>
+			  	<button type="button" id="btn" class="btn btn-primary">Submit</button>
 			  </div>
 			</form>
 		</div>
@@ -56,5 +61,6 @@
 		<!-- Form 끝 -->
 		
 		<script type="text/javascript" src="../resources/js/member_join.js"></script>
+		<script type="text/javascript" src="../resources/js/file.js"></script>
 	</body>
 </html>
