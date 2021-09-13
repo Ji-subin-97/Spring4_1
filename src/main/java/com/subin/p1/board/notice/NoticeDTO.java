@@ -1,5 +1,8 @@
 package com.subin.p1.board.notice;
 
-public class NoticeDTO {
+import com.subin.p1.board.BoardDTO;
 
+public class NoticeDTO extends BoardDTO {
+	// is a
+	// has a
 }
