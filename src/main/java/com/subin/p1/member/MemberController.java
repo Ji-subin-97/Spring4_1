@@ -35,6 +35,9 @@ public class MemberController {
 	public ModelAndView update(MemberDTO memberDTO, HttpSession session) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		
+		MemberDTO sessionDTO = (MemberDTO)session.getAttribute("member");
+		memberDTO.setId(sessionDTO.getId());
+		
 		int result = memberService.setUpdate(memberDTO);
 		
 		session.removeAttribute("member");

@@ -16,10 +16,6 @@
 		<div class="container-fluid">
 			<form action="update" method="post">
 			  <div class="col-md-6 mb-3 mx-auto">
-			    <label for="exampleInputEmail1" class="form-label">아이디</label>
-			    <input type="text" id="ids" name="id" class="form-control" value="${member.id}" readonly>
-			  </div>
-			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputPassword1" class="form-label">비밀번호</label>
 			    <input type="password" name="pw" class="form-control" value="${member.pw}" readonly>
 			  </div>
