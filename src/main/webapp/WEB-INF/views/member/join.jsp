@@ -14,7 +14,7 @@
 		
 		<!-- Form 시작 -->
 		<div class="container-fluid">
-			<form action="join" method="post" id="frm">
+			<form action="join" method="post" enctype="multipart/form-data">
 			  <div class="col-md-6 mb-3 mx-auto">
 			    <label for="exampleInputEmail1" class="form-label">아이디</label>
 			    <input type="text" id="id" name="id" class="form-control put">
@@ -44,23 +44,25 @@
 			  </div>
 			  
 			  <div class="col-md-6 mb-3 mx-auto" id="files">
-			  	<button type="button" id="add" class="btn btn-info">File Add</button>
-			  </div>
-			  
-			  <!-- input file 추가 영역 -->
-			  <div id="addResult">
-			  
+			  	<button type="button" id="add" class="btn btn-info mb-3">File Add</button>
+			  	<div class="col-md-12 mb-3 mx-auto">
+					<input type="file" name="photo" class="form-control">
+				</div>
+			  	
+			  	<!-- input file 추가 영역 -->
+			  	<div id="addResult"></div>
+			  	
 			  </div>
 			  
 			  <div class="col-md-6 mx-auto">
-			  	<button type="button" id="btn" class="btn btn-primary">Submit</button>
+			  	<button type="submit" id="btn" class="btn btn-primary">Submit</button>
 			  </div>
 			</form>
 		</div>
 		
 		<!-- Form 끝 -->
 		
-		<script type="text/javascript" src="../resources/js/member_join.js"></script>
-		<script type="text/javascript" src="../resources/js/file.js"></script>
+		<!-- <script type="text/javascript" src="../resources/js/member_join.js"></script>
+		<script type="text/javascript" src="../resources/js/file.js"></script> -->
 	</body>
 </html>

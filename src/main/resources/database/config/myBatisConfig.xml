@@ -11,6 +11,7 @@
   		<typeAlias type="com.subin.p1.board.util.Pager" alias="Pager"/>
   		
   		<typeAlias type="com.subin.p1.member.MemberDTO" alias="MemberDTO"/>
+  		<typeAlias type="com.subin.p1.member.MemberFilesDTO" alias="MemberFilesDTO"/>
   		
   		<typeAlias type="java.lang.Long" alias="Long"/>
   	
