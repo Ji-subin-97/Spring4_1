@@ -20,6 +20,10 @@ public class MemberDAO {
 		return sql_Sec.selectOne(NAMESPACE + "getLogin", memberDTO);
 	}
 	
+	public MemberFilesDTO getFile(MemberDTO memberDTO) throws Exception{
+		return sql_Sec.selectOne(NAMESPACE + "getFile", memberDTO);
+	}
+	
 	public int setFileInsert(MemberFilesDTO memberFilesDTO) throws Exception{
 		return sql_Sec.insert(NAMESPACE + "setFileInsert", memberFilesDTO);
 	}

@@ -15,6 +15,9 @@
 		<h1>NAME : ${member.name}</h1>
 		<h1>EMAIL : ${member.email}</h1>
 		<h1>PHONE : ${member.phone}</h1>
+		<div>
+			<img src="../resources/upload/member/${files.fileName}">
+		</div>
 		
 		<h1><a href="./update">정보수정</a></h1>
 		<h1><a href="./delete?id=${member.id}" onclick="confirm();">회원탈퇴</a></h1><br>

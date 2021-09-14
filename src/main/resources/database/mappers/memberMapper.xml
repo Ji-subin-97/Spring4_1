@@ -5,6 +5,10 @@
   
   <mapper namespace="com.subin.p1.member.MemberDAO">
   	
+  	<select id="getFile" parameterType="MemberDTO" resultType="MemberFilesDTO">
+  		SELECT * FROM memberFiles WHERE id = #{id}
+  	</select>
+  	
   	<insert id="setFileInsert" parameterType="MemberFilesDTO">
   		INSERT INTO memberFiles (num, id, filename, oriname)
   		VALUES (MF_NUM_SEQ.nextval, #{id}, #{fileName}, #{oriName})

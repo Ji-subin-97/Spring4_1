@@ -17,6 +17,10 @@ public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	
+	public MemberFilesDTO getFile(MemberDTO memberDTO) throws Exception{
+		return memberDAO.getFile(memberDTO);
+	}
+	
 	public MemberDTO getIDCheck(MemberDTO memberDTO) throws Exception{
 		return memberDAO.getIDCheck(memberDTO);
 	}
@@ -29,6 +33,7 @@ public class MemberService {
 		
 		int result = memberDAO.setJoin(memberDTO);
 		
+		if(photo != null) {
 		//1. 어느 폴더에 저장
 		// /resources/upload/member
 		//2. application(ServletContext) 객체로 저장할 실제 경로 구하기
@@ -64,8 +69,8 @@ public class MemberService {
 		memberFilesDTO.setId(memberDTO.getId());
 		memberFilesDTO.setFileName(fileName);
 		memberFilesDTO.setOriName(photo.getOriginalFilename());
-		
-		memberDAO.setFileInsert(memberFilesDTO);
+		result = memberDAO.setFileInsert(memberFilesDTO);
+		}
 		
 		return result;
 	}
