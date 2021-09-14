@@ -25,6 +25,7 @@ public class MemberController {
 	
 	@GetMapping("delete")
 	public ModelAndView delete(MemberDTO memberDTO, HttpSession session) throws Exception{
+		
 		ModelAndView mv = new ModelAndView();
 		
 		int result = memberService.setDelete(memberDTO);

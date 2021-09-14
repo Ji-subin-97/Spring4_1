@@ -80,6 +80,8 @@ public class MemberService {
 	}
 	
 	public int setDelete(MemberDTO memberDTO) throws Exception{
+		
+		
 		return memberDAO.setDelete(memberDTO);
 	}
 }
