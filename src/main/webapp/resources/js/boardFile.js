@@ -6,7 +6,7 @@
  */
  	let file = '<div class="input-group mb-3">';
   	file = file + '<input type="file" class="form-control">';
-  	file = file + '<button class="btn btn-outline-secondary" type="button"><span class="del">X</span></button>';
+  	file = file + '<button class="btn btn-outline-secondary del" type="button"><span>X</span></button>';
 	file = file + '</div>';
  	
  	let count = 0;
@@ -22,11 +22,15 @@
 		
 	});
 	
-	$(".del").click(function(){
+/*	$(".del").click(function(){
 		
 		alert("!");
 		$("#fileAddResult").remove(file);
 		
+	});*/
+	
+	$("#fileAddResult").on('click', '.del', function(){
+		console.log(this);
 	});
 
 	

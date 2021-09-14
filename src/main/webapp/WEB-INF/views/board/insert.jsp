@@ -11,6 +11,11 @@
 			.f{
 				width: 90%;
 			}
+			#d1{
+				width: 300px;
+				height: 300px;
+				background-color: yellow;
+			}
 		</style>
 	</head>
 	<body>
@@ -48,6 +53,7 @@
 					</table>
 			</div>
 		</form>
+		<div id="d1"></div>
 		
 		<script type="text/javascript" src="../resources/js/boardFile.js"></script>
 	</body>
