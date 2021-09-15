@@ -6,7 +6,7 @@
  */
  	
  	let file = '<div class="input-group mb-3">';
-	  	file = file + '<input type="file" class="form-control">';
+	  	file = file + '<input type="file" name="files" class="form-control">';
 	  	file = file + '<button class="btn btn-outline-secondary del" type="button">X</button>';
 		file = file + '</div>';
 		

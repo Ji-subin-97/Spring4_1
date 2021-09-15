@@ -2,6 +2,9 @@ package com.subin.p1.board.notice;
 
 import java.util.List;
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,10 +13,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.subin.p1.board.BoardDTO;
 import com.subin.p1.board.util.Pager;
+
+import oracle.net.aso.f;
 
 @Controller
 @RequestMapping("/notice/**")
@@ -75,10 +81,16 @@ public class NoticeController {
 
 	
 	@PostMapping("insert")
-	public String setInsert(BoardDTO boardDTO) throws Exception{
+	public String setInsert(BoardDTO boardDTO, MultipartFile []files) throws Exception{
 		
-		int result = noticeService.setInsert(boardDTO);
-		System.out.println(result);
+		//original file name 출력
+		
+		for(int i=0; i<files.length; i++) {
+			System.out.println(files[i].getOriginalFilename());
+		}
+		
+		noticeService.setInsert(boardDTO, files);
+		//int result = noticeService.setInsert(boardDTO);
 		
 		return "redirect:./list";
 	}

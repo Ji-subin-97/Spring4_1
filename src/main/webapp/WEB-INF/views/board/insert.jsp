@@ -23,7 +23,7 @@
 		<c:import url="../temp/nav.jsp"></c:import>
 		
 		<h1>Insert Page 입니다.</h1>
-		<form action="./insert" method="POST" class="col-md-10 mx-auto my-0">
+		<form action="./insert" method="POST" class="col-md-10 mx-auto my-0" enctype="multipart/form-data">
 			<div class="container-fluid">
 					<table class="table table-dark table-striped" style="text-align:left">
 						<tr>
