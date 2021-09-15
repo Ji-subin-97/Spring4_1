@@ -54,6 +54,13 @@ public class NoticeDAO implements BoardDAO {
 	public int setFile(BoardFilesDTO boardFilesDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setFile", boardFilesDTO);
 	}
+
+	@Override
+	public List<BoardFilesDTO> getFile(BoardDTO boardDTO) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"getFile", boardDTO);
+	}
+	
+	
 	
 
 }

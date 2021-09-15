@@ -29,5 +29,8 @@ public interface BoardDAO {
 	//fileSave
 	public int setFile(BoardFilesDTO boardFilesDTO) throws Exception;
 	
+	//getFile
+	public List<BoardFilesDTO> getFile(BoardDTO boardDTO) throws Exception;
+	
 
 }

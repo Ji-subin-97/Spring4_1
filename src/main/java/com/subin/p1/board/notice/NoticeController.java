@@ -17,6 +17,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.subin.p1.board.BoardDTO;
+import com.subin.p1.board.BoardFilesDTO;
 import com.subin.p1.board.util.Pager;
 
 import oracle.net.aso.f;
@@ -51,9 +52,13 @@ public class NoticeController {
 	public ModelAndView getSelect(BoardDTO boardDTO) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("board/select");
 		boardDTO = noticeService.getSelect(boardDTO);
+		List<BoardFilesDTO> ar = noticeService.getFile(boardDTO);
+		
+		
 		mv.addObject("dto", boardDTO);
+		mv.addObject("files", ar);
+		mv.setViewName("board/select");
 		
 		return mv;
 	}

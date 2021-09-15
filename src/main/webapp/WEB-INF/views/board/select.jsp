@@ -18,6 +18,9 @@
 					<h1>CONTENTS : ${dto.contents}</h1>
 					<h1>WRITER : ${dto.writer}</h1>
 					<h1>REGDATE : ${dto.regDate}</h1>
+					<c:forEach items="${files}" var="f">
+						<h1>Files : <img src="../resources/upload/notice/${f.fileName}"></h1>
+					</c:forEach>
 					<h1>HITS : ${dto.hits}</h1>
 					<c:if test="${dto.writer eq member.id}">
 						<h1><a href="./delete?num=${dto.num}">삭제하기</a></h1>
@@ -29,6 +32,9 @@
 					<h1>CONTENTS : ${dto.contents}</h1>
 					<h1>WRITER : ${dto.writer}</h1>
 					<h1>REGDATE : ${dto.regDate}</h1>
+					<c:forEach items="${files}" var="f">
+						<h1>Files : <img src="../resources/upload/notice/${f.fileName}"></h1>
+					</c:forEach>
 					<h1>HITS : ${dto.hits}</h1>
 					<c:if test="${dto.writer eq member.id}">
 						<h1><a href="./delete?num=${dto.num}">삭제하기</a></h1>

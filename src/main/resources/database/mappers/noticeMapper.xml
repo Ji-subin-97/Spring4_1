@@ -10,6 +10,10 @@
   			VALUES (mf_num_seq.nextval, #{num}, #{fileName}, #{oriName})
   		</insert>
   		
+  		<select id="getFile" parameterType="BoardDTO" resultType="BoardFilesDTO">
+  			SELECT * FROM NoticeFiles WHERE NUM = #{num}
+  		</select>
+  		
   		<!-- Total Count 구하기 -->
   		<select id="getCount" resultType="Long" parameterType="Pager">
   			SELECT COUNT(NUM) FROM NOTICE
