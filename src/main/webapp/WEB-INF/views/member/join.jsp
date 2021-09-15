@@ -61,6 +61,7 @@
 		</div>
 		
 		<!-- Form 끝 -->
+		<!-- C:\Users\qls12\Desktop\STS\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\Spring4_1\resources\upload\member\ -->
 		
 		<!-- <script type="text/javascript" src="../resources/js/member_join.js"></script>
 		<script type="text/javascript" src="../resources/js/file.js"></script> -->

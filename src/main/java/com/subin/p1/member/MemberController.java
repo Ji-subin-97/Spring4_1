@@ -131,14 +131,14 @@ public class MemberController {
 	}
 	
 	@PostMapping("join")
-	public ModelAndView join(MemberDTO memberDTO, MultipartFile photo, HttpSession session) throws Exception{
+	public ModelAndView join(MemberDTO memberDTO, MultipartFile photo) throws Exception{
 		
 		String original = photo.getOriginalFilename();
 		System.out.println("Original : " + original);
 		
 		ModelAndView mv = new ModelAndView();
 		// int result = memberService.setJoin(memberDTO);
-		int result = memberService.setJoin(memberDTO, photo, session);
+		int result = memberService.setJoin(memberDTO, photo);
 		
 		String message = "회원가입실패";
 		if(result>0) {

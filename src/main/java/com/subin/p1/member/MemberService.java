@@ -17,6 +17,12 @@ public class MemberService {
 	@Autowired
 	private MemberDAO memberDAO;
 	
+	@Autowired
+	private HttpSession session;
+	
+	@Autowired
+	private ServletContext servletContext;
+	
 	public MemberFilesDTO getFile(MemberDTO memberDTO) throws Exception{
 		return memberDAO.getFile(memberDTO);
 	}
@@ -29,7 +35,7 @@ public class MemberService {
 		return memberDAO.getLogin(memberDTO);
 	}
 	
-	public int setJoin(MemberDTO memberDTO, MultipartFile photo, HttpSession session) throws Exception{
+	public int setJoin(MemberDTO memberDTO, MultipartFile photo) throws Exception{
 		
 		int result = memberDAO.setJoin(memberDTO);
 		
@@ -38,8 +44,8 @@ public class MemberService {
 		// /resources/upload/member
 		//2. application(ServletContext) 객체로 저장할 실제 경로 구하기
 		
-		ServletContext sContext = session.getServletContext();
-		String realPath = sContext.getRealPath("/resources/upload/member/");
+		//ServletContext sContext = this.session.getServletContext();
+		String realPath = this.servletContext.getRealPath("/resources/upload/member/");
 		System.out.println("RealPath: " + realPath);
 		
 		//3. 폴더 확인
@@ -80,7 +86,15 @@ public class MemberService {
 	}
 	
 	public int setDelete(MemberDTO memberDTO) throws Exception{
+		//1. 어느폴더
+		String realPath = servletContext.getRealPath("/resources/upload/member/");
 		
+		//2. 어느파일
+		MemberFilesDTO memberFilesDTO = memberDAO.getFile(memberDTO);
+		
+		//3. 파일 삭제
+		File file = new File(realPath, memberFilesDTO.getFileName());
+		file.delete();
 		
 		return memberDAO.setDelete(memberDTO);
 	}
