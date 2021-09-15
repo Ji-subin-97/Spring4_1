@@ -23,7 +23,7 @@ public class QnaController {
 	
 	@ModelAttribute("board")
 	public String getBoard() {
-		return "QNA";
+		return "qna";
 	}
 	
 	

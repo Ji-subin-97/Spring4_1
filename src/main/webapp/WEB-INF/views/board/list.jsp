@@ -53,7 +53,7 @@
 		  <thead>
 		    <tr>
 		    	<c:choose>
-		    		<c:when test="${board eq 'NOTICE'}">
+		    		<c:when test="${board eq 'notice'}">
 	    			  <th scope="col">NUM</th>
 				      <th scope="col">TITLE</th>
 				      <th scope="col">WRITER</th>
@@ -75,7 +75,7 @@
 		  </thead>
 		  <tbody>
 		  		<c:choose>
-		  			<c:when test="${board eq 'NOTICE'}">
+		  			<c:when test="${board eq 'notice'}">
 				  		<c:forEach items="${list}" var="dto">
 						    <tr>
 						      <th scope="row">${dto.num}</th>
