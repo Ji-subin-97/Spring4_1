@@ -88,6 +88,10 @@ public class NoticeService implements BoardService {
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		return noticeDAO.setDelete(boardDTO);
 	}
+	
+	public int setDelFile(BoardDTO boardDTO) throws Exception{
+		return noticeDAO.setDelFile(boardDTO);
+	}
 
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {

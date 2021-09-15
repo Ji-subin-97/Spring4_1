@@ -67,6 +67,7 @@ public class NoticeController {
 	public String setDelete(BoardDTO boardDTO) throws Exception{
 		
 		int result = noticeService.setDelete(boardDTO);
+		int result_f = noticeService.setDelFile(boardDTO);
 		System.out.println(result);
 		
 		return "redirect:./list";

@@ -48,9 +48,13 @@
 		WHERE R between #{startRow} and #{lastRow}
 	</select>
 	
+	<select id="getFile" parameterType="BoardDTO" resultType="BoardFilesDTO">
+		SELECT * FROM qnaFiles WHERE NUM = #{num} 
+	</select>
+	
 	<select id="getSelect" parameterType="BoardDTO" resultType="QnaDTO">
-			SELECT * FROM QNA WHERE NUM=#{num}
-		</select>
+			SELECT * FROM QNA WHERE NUM = #{num}
+	</select>
 	
 	<insert id="setInsert" parameterType="BoardDTO">
 		<selectKey order="BEFORE" resultType="Long" keyProperty="num">

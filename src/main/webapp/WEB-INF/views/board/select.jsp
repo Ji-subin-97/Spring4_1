@@ -11,6 +11,8 @@
 	<body>
 		<c:import url="../temp/nav.jsp"></c:import>
 		
+		<!-- qna select 삭제시 table과 폴더에 있는 첨부파일도 삭제 notice delete qna delete -->
+		
 		<div class="container-fluid">
 			<c:choose>
 				<c:when test="${board eq 'notice'}">

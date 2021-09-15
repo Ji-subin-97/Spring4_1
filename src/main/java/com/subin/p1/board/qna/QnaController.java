@@ -12,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.subin.p1.board.BoardDTO;
+import com.subin.p1.board.BoardFilesDTO;
 import com.subin.p1.board.util.Pager;
 
 @Controller
@@ -41,8 +42,11 @@ public class QnaController {
 	public ModelAndView getSelect(BoardDTO boardDTO) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("board/select");
 		boardDTO = qnaService.getSelect(boardDTO);
+		List<BoardFilesDTO> ar = qnaService.getFile(boardDTO);
+		
+		mv.setViewName("board/select");
+		mv.addObject("files", ar);
 		mv.addObject("dto", boardDTO);
 		
 		return mv;

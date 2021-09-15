@@ -72,6 +72,10 @@
 			DELETE FROM NOTICE WHERE NUM=#{num}
 		</delete>
 		
+		<delete id="setDelFile" parameterType="BoardDTO">
+			DELETE FROM noticeFiles WHERE NUM = #{num}
+		</delete>
+		
 		<update id="setUpdate" parameterType="BoardDTO">
 			UPDATE NOTICE SET TITLE=#{title},CONTENTS=#{contents},WRITER=#{writer} 
 			WHERE NUM=#{num}

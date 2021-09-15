@@ -24,6 +24,10 @@ public class QnaService implements BoardService {
 	@Autowired
 	private FileManager fileManger;
 
+	public List<BoardFilesDTO> getFile(BoardDTO boardDTO) throws Exception{
+		return qnaDAO.getFile(boardDTO);
+	}
+	
 	@Override
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		// TODO Auto-generated method stub
@@ -33,7 +37,7 @@ public class QnaService implements BoardService {
 		
 		return qnaDAO.getList(pager);
 	}
-
+	
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		// TODO Auto-generated method stub
@@ -98,5 +102,6 @@ public class QnaService implements BoardService {
 		
 		return result;
 	}
+	
 
 }
