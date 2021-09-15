@@ -4,6 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.subin.p1.board.notice.NoticeDAO">
+  
+  		<insert id="setFile" parameterType="BoardFilesDTO">
+  			INSERT INTO noticeFiles (fileNum, num, fileName, oriName)
+  			VALUES (mf_num_seq.nextval, #{num}, #{fileName}, #{oriName})
+  		</insert>
+  		
   		<!-- Total Count 구하기 -->
   		<select id="getCount" resultType="Long" parameterType="Pager">
   			SELECT COUNT(NUM) FROM NOTICE
@@ -49,10 +55,13 @@
 		<select id="getSelect" parameterType="BoardDTO" resultType="NoticeDTO">
 			SELECT * FROM NOTICE WHERE NUM=#{num}
 		</select>
-	
+		
 		<insert id="setInsert" parameterType="BoardDTO">
+			<selectKey order="BEFORE" resultType="Long" keyProperty="num">
+				SELECT NOTICE_NUM_SEQ.NEXTVAL FROM DUAL
+			</selectKey>
 			INSERT INTO NOTICE(NUM,TITLE,CONTENTS,WRITER,REGDATE,HITS)
-			VALUES(NOTICE_NUM_SEQ.NEXTVAL,#{title},#{contents},#{writer},SYSDATE,0)
+			VALUES(#{num}, #{title}, #{contents}, #{writer}, SYSDATE, 0)
 		</insert>
 	
 		<delete id="setDelete" parameterType="BoardDTO">

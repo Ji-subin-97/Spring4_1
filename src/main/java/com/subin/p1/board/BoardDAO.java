@@ -18,13 +18,16 @@ public interface BoardDAO {
 	public abstract BoardDTO getSelect(BoardDTO boardDTO)throws Exception;
 	
 	//글쓰기
-	public int setInsert(BoardDTO boardDTO, MultipartFile [] files)throws Exception;
+	public int setInsert(BoardDTO boardDTO)throws Exception;
 	
 	//글삭제
 	public int setDelete(BoardDTO boardDTO)throws Exception;
 	
 	//글수정
 	public int setUpdate(BoardDTO boardDTO)throws Exception;
+	
+	//fileSave
+	public int setFile(BoardFilesDTO boardFilesDTO) throws Exception;
 	
 
 }

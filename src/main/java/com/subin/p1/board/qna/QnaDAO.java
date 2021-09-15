@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.subin.p1.board.BoardDAO;
 import com.subin.p1.board.BoardDTO;
+import com.subin.p1.board.BoardFilesDTO;
 import com.subin.p1.board.util.Pager;
 
 @Repository
@@ -57,6 +58,11 @@ public class QnaDAO implements BoardDAO {
 	//답글
 	public int setReply(QnaDTO qnaDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setReply", qnaDTO);
+	}
+	
+	//파일
+	public int setFile(BoardFilesDTO boardFilesDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE + "setFile", boardFilesDTO);
 	}
 
 }

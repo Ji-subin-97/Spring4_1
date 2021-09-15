@@ -15,7 +15,7 @@ public interface BoardService {
 	public abstract BoardDTO getSelect(BoardDTO boardDTO)throws Exception;
 
 	//글쓰기
-	public int setInsert(BoardDTO boardDTO, MultipartFile []files)throws Exception;
+	public int setInsert(BoardDTO boardDTO, MultipartFile [] files)throws Exception;
 
 	//글삭제
 	public int setDelete(BoardDTO boardDTO)throws Exception;
