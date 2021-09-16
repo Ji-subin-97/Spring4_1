@@ -31,9 +31,6 @@ public interface BoardDAO {
 	
 	//getFile
 	public List<BoardFilesDTO> getFile(BoardDTO boardDTO) throws Exception;
-	
-	//setDelFile
-	public int setDelFile(BoardDTO boardDTO) throws Exception;
-	
+
 
 }

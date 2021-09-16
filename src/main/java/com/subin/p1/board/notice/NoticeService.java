@@ -86,11 +86,18 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
+		
+		//Files Table에서 삭제할 파일명들 조회
+		List<BoardFilesDTO> ar = noticeDAO.getFile(boardDTO);
+		
+		//어느폴더
+		String realPath = servlet.getRealPath("/resources/upload/notice/");
+		for(BoardFilesDTO bDto:ar) {
+			File file = new File(realPath, bDto.getFileName());
+			fileManager.fileDelete(file);
+		}
+		
 		return noticeDAO.setDelete(boardDTO);
-	}
-	
-	public int setDelFile(BoardDTO boardDTO) throws Exception{
-		return noticeDAO.setDelFile(boardDTO);
 	}
 
 	@Override

@@ -22,7 +22,7 @@ public class QnaService implements BoardService {
 	@Autowired
 	private ServletContext servlet;
 	@Autowired
-	private FileManager fileManger;
+	private FileManager fileManager;
 
 	public List<BoardFilesDTO> getFile(BoardDTO boardDTO) throws Exception{
 		return qnaDAO.getFile(boardDTO);
@@ -61,7 +61,7 @@ public class QnaService implements BoardService {
 		//max()
 		
 		for(MultipartFile multipartFile:files) {
-			String fileName = fileManger.fileSave(file, multipartFile);
+			String fileName = fileManager.fileSave(file, multipartFile);
 			System.out.println(fileName);
 			BoardFilesDTO boardFilesDTO = new BoardFilesDTO();
 			boardFilesDTO.setFileName(fileName);
@@ -77,7 +77,17 @@ public class QnaService implements BoardService {
 
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
+		
+		//Files Table에서 삭제할 파일명들 조회
+		List<BoardFilesDTO> ar = qnaDAO.getFile(boardDTO);
+		
+		//어느폴더
+		String realPath = servlet.getRealPath("/resources/upload/qna/");
+		for(BoardFilesDTO bDto:ar) {
+			File file = new File(realPath, bDto.getFileName());
+			fileManager.fileDelete(file);
+		}
+		
 		return qnaDAO.setDelete(boardDTO);
 	}
 

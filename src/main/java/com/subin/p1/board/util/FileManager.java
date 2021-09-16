@@ -7,9 +7,16 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.subin.p1.board.BoardFilesDTO;
+
 @Component
 public class FileManager {
 	
+	//fileDelete
+	public void fileDelete(File file) throws Exception{
+		
+		file.delete();
+	}
 	
 	//fileSave
 	//파일 저장
