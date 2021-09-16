@@ -21,7 +21,7 @@
 					<h1>WRITER : ${dto.writer}</h1>
 					<h1>REGDATE : ${dto.regDate}</h1>
 					<c:forEach items="${dto.files}" var="f">
-						<h1>Files : <img src="../resources/upload/${board}/${f.fileName}"></h1>
+						<h1>Files : <a href="./down?fileName=${f.fileName}">${f.oriName}</a></h1>
 					</c:forEach>
 					<h1>HITS : ${dto.hits}</h1>
 					<c:if test="${dto.writer eq member.id}">
