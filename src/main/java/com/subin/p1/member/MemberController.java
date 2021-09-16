@@ -68,7 +68,7 @@ public class MemberController {
 		MemberDTO memberDTO = (MemberDTO)session.getAttribute("member");
 		MemberFilesDTO memberFilesDTO = memberService.getFile(memberDTO);
 		
-		mv.addObject("files", memberFilesDTO);
+		//mv.addObject("files", memberFilesDTO);
 		mv.setViewName("member/myPage");
 		
 		return mv;

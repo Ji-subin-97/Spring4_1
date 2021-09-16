@@ -16,7 +16,7 @@
 		<h1>EMAIL : ${member.email}</h1>
 		<h1>PHONE : ${member.phone}</h1>
 		<div>
-			<img src="../resources/upload/member/${files.fileName}">
+			<img src="../resources/upload/member/${member.memberFilesDTO.fileName}">
 		</div>
 		
 		<h1><a href="./update">정보수정</a></h1>
