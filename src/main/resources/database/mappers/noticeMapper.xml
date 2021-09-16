@@ -73,7 +73,7 @@
 		</resultMap>
 		
 		<select id="getSelect" parameterType="BoardDTO" resultMap="getSelectResult">
-			select N.*, NF.* from notice N inner join noticefiles NF on (N.num = NF.num)
+			select N.*, NF.* from notice N left join noticefiles NF on (N.num = NF.num)
 			where N.num = #{num}
 		</select>
 		

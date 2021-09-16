@@ -33,7 +33,7 @@
   	</resultMap>
   	
   	<select id="getLogin" parameterType="MemberDTO" resultMap="getLoginResult">
-  		SELECT * FROM MEMBER INNER JOIN MEMBERFILES USING(ID) WHERE id = #{id} AND pw = #{pw}
+  		SELECT * FROM MEMBER left JOIN MEMBERFILES USING(ID) WHERE id = #{id} AND pw = #{pw}
   	</select>
   	
   	<insert id="setJoin" parameterType="MemberDTO">
