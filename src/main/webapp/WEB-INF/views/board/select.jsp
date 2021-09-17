@@ -17,7 +17,7 @@
 			<c:choose>
 				<c:when test="${board eq 'notice'}">
 					<h1>TITLE : ${dto.title}</h1>
-					<h1>CONTENTS : ${dto.contents}</h1>
+					<div>${dto.contents}</div>
 					<h1>WRITER : ${dto.writer}</h1>
 					<h1>REGDATE : ${dto.regDate}</h1>
 					<c:forEach items="${dto.files}" var="f">

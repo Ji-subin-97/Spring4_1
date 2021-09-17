@@ -7,6 +7,16 @@
 		<meta charset="UTF-8">
 		<title>Insert</title>
 		<c:import url="../temp/header.jsp"></c:import>
+		
+		<!-- include libraries(jQuery, bootstrap) -->
+		<link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
+		<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+		
+		<!-- include summernote css/js -->
+		<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+		
 		<style type="text/css">
 			.f{
 				width: 90%;
@@ -17,6 +27,11 @@
 				background-color: yellow;
 			}
 		</style>
+		<script type="text/javascript">
+			$('document').ready(function () {
+				$('#contents').summernote();
+			});
+		</script>
 	</head>
 	<body>
 	
@@ -32,8 +47,9 @@
 						<tr>
 							<td>내용</td>
 							<td>
-								<textarea rows="10" cols="90" name="contents">
+								<textarea rows="10" cols="90" name="contents" id="contents">
 								</textarea>
+								<div id="contents"></div>
 							</td>
 						</tr>
 						<tr>
