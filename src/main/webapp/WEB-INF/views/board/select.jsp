@@ -23,7 +23,22 @@
 					<c:forEach items="${dto.files}" var="f">
 						<h1>Files : <a href="./down?fileName=${f.fileName}">${f.oriName}</a></h1>
 					</c:forEach>
-					<h1>HITS : ${dto.hits}</h1>
+					
+					<hr>
+					<div>
+						<div>
+							<label for="exampleInputPassword1" class="form-label">작성자</label>
+							<input class="form-control" type="text" id="writer" name="writer" value="${member.id}" readonly>
+						</div>
+						<div>
+							<label for="exampleInputPassword1" class="form-label">COMMENT</label>
+							<textarea class="form-control" id="contents" rows="" cols=""></textarea>
+						</div>
+						<div>
+							<input class="btn btn-info" id="comment" type="submit" value="작성하기">
+						</div>
+					</div>
+					
 					<c:if test="${dto.writer eq member.id}">
 						<h1><a href="./delete?num=${dto.num}">삭제하기</a></h1>
 						<h1><a href="./update?num=${dto.num}">수정하기</a></h1>
@@ -37,7 +52,6 @@
 					<c:forEach items="${dto.files}" var="f">
 						<h1>Files : <img src="../resources/upload/${board}/${f.fileName}"></h1>
 					</c:forEach>
-					<h1>HITS : ${dto.hits}</h1>
 					<c:if test="${dto.writer eq member.id}">
 						<h1><a href="./delete?num=${dto.num}">삭제하기</a></h1>
 						<h1><a href="./update?num=${dto.num}">수정하기</a></h1>
@@ -47,5 +61,15 @@
 			</c:choose>	
 		</div>
 		
+		<script type="text/javascript">
+			$('#comment').click(function () {
+				//작성자, 내용을 콘솔에 출력
+				let writer = $('#writer').val();
+				let contents = $('#contents').val();
+				$.post('./comment', {num:'${dto.num}', writer:writer, contents:contents}, function (result) {
+					console.log(result.trim());
+				});
+			});
+		</script>
 	</body>
 </html>

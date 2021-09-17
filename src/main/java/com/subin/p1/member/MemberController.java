@@ -114,6 +114,25 @@ public class MemberController {
 		return mv;
 	}
 	
+	@GetMapping("idCheckAjax")
+	public ModelAndView getIdCheckAjax(MemberDTO memberDTO) throws Exception{
+		// 중복검사할 id 출력
+		System.out.println(memberDTO.getId());
+		memberDTO = memberService.getIDCheck(memberDTO);
+		//1 이면 사용 가능
+		//0 이면 사용 불가
+		int result = 0;
+		if(memberDTO==null) {
+			result = 1;
+		}
+		
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("common/ajaxResult");
+		mv.addObject("result", result);
+		
+		return mv;
+	}
+	
 	@GetMapping("check")
 	public ModelAndView check() throws Exception{
 		ModelAndView mv = new ModelAndView();
