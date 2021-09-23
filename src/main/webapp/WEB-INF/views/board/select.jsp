@@ -7,6 +7,11 @@
 		<meta charset="UTF-8">
 		<title>Select</title>
 		<c:import url="../temp/header.jsp"></c:import>
+		<style type="text/css">
+			.n{
+				cursor: pointer;
+			}
+		</style>
 	</head>
 	<body>
 		<c:import url="../temp/nav.jsp"></c:import>
@@ -25,6 +30,11 @@
 					</c:forEach>
 					
 					<hr>
+					<!-- Comment List -->
+					<div id="commentList" data-board-num="${dto.num}">
+						
+					</div>
+					
 					<div>
 						<div>
 							<label for="exampleInputPassword1" class="form-label">작성자</label>
@@ -62,12 +72,43 @@
 		</div>
 		
 		<script type="text/javascript">
+			getCommentList(1);
+			
+			$("#commentList").on("click", ".n", function() {
+				let pn = $(this).attr("data-comment-pn");
+				getCommentList(pn);
+			});
+			
+			function getCommentList(pageNumber) {
+				let num = $("#commentList").attr("data-board-num");
+				
+				$.ajax({
+					type: "GET",
+					url: "./getCommentList",
+					data: {
+						num: num,
+						pn: pageNumber
+					},
+					success: function(result){
+						result = result.trim();
+						$('#commentList').html(result);
+					},
+					error: function(xhr, status, error) {
+						console.log(error);
+					}
+				});
+			}
+			
 			$('#comment').click(function () {
 				//작성자, 내용을 콘솔에 출력
 				let writer = $('#writer').val();
 				let contents = $('#contents').val();
 				$.post('./comment', {num:'${dto.num}', writer:writer, contents:contents}, function (result) {
 					console.log(result.trim());
+					
+					$('#contents').val('');
+					
+					getCommentList();
 				});
 			});
 		</script>

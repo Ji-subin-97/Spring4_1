@@ -4,7 +4,27 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <mapper namespace="com.subin.p1.board.notice.NoticeDAO">
-  
+  		
+  		<select id="getTotalComment" resultType="Long" parameterType="CommentsDTO">
+  			SELECT COUNT(commentNum) FROM
+  			COMMENTS
+  			WHERE board=#{board} and num = #{num}
+  		</select>
+  		
+  		<select id="getCommentList" resultType="CommentsDTO" parameterType="Map">
+  			SELECT * FROM
+	  			(SELECT rownum R, C.* FROM
+		  			(SELECT * FROM COMMENTS
+		  			WHERE board=#{comments.board} and num=#{comments.num}
+		  			ORDER BY commentnum desc) C)
+		  	WHERE R between #{pager.startRow} and #{pager.lastRow}
+  		</select>
+  		
+  		<insert id="setComment" parameterType="CommentsDTO">
+  			INSERT INTO COMMENTS VALUES
+ 			(comments_seq.nextval, #{num}, #{writer}, #{contents}, sysdate, #{board})
+  		</insert>
+  		
   		<insert id="setFile" parameterType="BoardFilesDTO">
   			INSERT INTO noticeFiles (fileNum, num, fileName, oriName)
   			VALUES (mf_num_seq.nextval, #{num}, #{fileName}, #{oriName})

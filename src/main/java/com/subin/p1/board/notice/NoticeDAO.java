@@ -1,6 +1,7 @@
 package com.subin.p1.board.notice;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.jdbc.SQL;
 import org.apache.ibatis.session.SqlSession;
@@ -11,6 +12,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.subin.p1.board.BoardDAO;
 import com.subin.p1.board.BoardDTO;
 import com.subin.p1.board.BoardFilesDTO;
+import com.subin.p1.board.CommentsDTO;
 import com.subin.p1.board.util.Pager;
 
 @Repository
@@ -58,7 +60,18 @@ public class NoticeDAO implements BoardDAO {
 	@Override
 	public List<BoardFilesDTO> getFile(BoardDTO boardDTO) throws Exception {
 		return sqlSession.selectList(NAMESPACE+"getFile", boardDTO);
-	}		
+	}
 	
+	public int setComment(CommentsDTO commentsDTO) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setComment", commentsDTO);
+	}
+	
+	public List<CommentsDTO> getCommentList(Map<String, Object> map) throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getCommentList", map);
+	}
+	
+	public Long getTotalComment(CommentsDTO commentsDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getTotalComment", commentsDTO);
+	}
 
 }

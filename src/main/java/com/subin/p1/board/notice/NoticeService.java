@@ -1,6 +1,7 @@
 package com.subin.p1.board.notice;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,6 +15,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.subin.p1.board.BoardDTO;
 import com.subin.p1.board.BoardFilesDTO;
 import com.subin.p1.board.BoardService;
+import com.subin.p1.board.CommentsDTO;
 import com.subin.p1.board.util.FileManager;
 import com.subin.p1.board.util.Pager;
 
@@ -25,6 +27,25 @@ public class NoticeService implements BoardService {
 	private ServletContext servlet;
 	@Autowired
 	private FileManager fileManager;
+	
+	public List<CommentsDTO> getCommentList(CommentsDTO commentsDTO, Pager pager) throws Exception{
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		
+		pager.setPerPage(5L);
+		pager.makeRow();
+		//전체 댓글의 갯수
+		Long totalCount = noticeDAO.getTotalComment(commentsDTO);
+		pager.makeNum(totalCount);
+		
+		map.put("comments", commentsDTO);
+		map.put("pager", pager);
+		
+		return noticeDAO.getCommentList(map);
+	}
+	
+	public int setComment(CommentsDTO commentsDTO) throws Exception{
+		return noticeDAO.setComment(commentsDTO);
+	}
 	
 	public List<BoardFilesDTO> getFile(BoardDTO boardDTO) throws Exception{
 		return noticeDAO.getFile(boardDTO);
