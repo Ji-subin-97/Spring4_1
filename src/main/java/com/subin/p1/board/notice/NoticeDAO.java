@@ -77,5 +77,9 @@ public class NoticeDAO implements BoardDAO {
 	public int setCommentDelete(CommentsDTO commentsDTO) throws Exception{
 		return sqlSession.delete(NAMESPACE+"setCommentDelete", commentsDTO);
 	}
+	
+	public int setCommentUpdate(CommentsDTO commentsDTO) throws Exception{
+		return sqlSession.update(NAMESPACE+"setCommentUpdate", commentsDTO);
+	}
 
 }

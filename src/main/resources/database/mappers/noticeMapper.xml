@@ -5,6 +5,10 @@
   
   <mapper namespace="com.subin.p1.board.notice.NoticeDAO">
   		
+  		<update id="setCommentUpdate" parameterType="CommentsDTO">
+  			UPDATE COMMENTS SET CONTENTS= #{contents} WHERE COMMENTNUM= #{commentNum}
+  		</update>
+  		
   		<delete id="setCommentDelete" parameterType="CommentsDTO">
   			DELETE COMMENTS WHERE COMMENTNUM=#{commentNum}
   		</delete>

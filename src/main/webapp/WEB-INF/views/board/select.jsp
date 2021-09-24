@@ -73,11 +73,48 @@
 		
 		<script type="text/javascript">
 			getCommentList(1);
+			let content='';
+			
+			//cancel btn
+			$("#commentList").on("click", "#cancel_btn", function() {
+				$(this).parent().html(content);
+			});
+			
+			//doupdate
+			$("#commentList").on("click", "#doupdate_btn", function() {
+				alert("!");
+				let commentNum = $(this).attr("data-comment-doupdate");
+				let contents = $("#contents").val();
+				
+				alert(commentNum);
+				alert(contents);
+				
+				$.ajax({
+					type: "POST",
+					url: "./updateComment",
+					data:{
+						commentNum: commentNum,
+						contents: contents
+					},
+					success: function(result) {
+						if(result>0){
+							alert("업데이트성공");
+							getCommentList(1);
+						}else{
+							alert("업데이트실패");
+						}
+					},
+					error: function() {
+						alert("error!");
+					}
+				});
+			});
 			
 			//Update Click Event
 			$("#commentList").on("click", "#update_btn", function() {
 				let update_num = $(this).attr("data-comment-update");
-				$("#"+update_num).html('<input type="text" name="contents">');
+				content = $("#"+update_num).html();
+				$("#"+update_num).html('<textarea class="form-control" id="contents" rows="" cols="">'+ content +'</textarea><button id="doupdate_btn" data-comment-doupdate="'+ update_num +'">UPDATE</button><button id="cancel_btn">CANCEL</button>');
 				
 				
 			});
