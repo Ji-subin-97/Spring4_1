@@ -7,9 +7,15 @@
 	<c:forEach items="${comments}" var="comment">
 		<tr>
 			<td>${comment.commentNum}</td>
-			<td>${comment.contents}</td>
+			<td id="${comment.commentNum}">${comment.contents}</td>
 			<td>${comment.writer}</td>
 			<td>${comment.regDate}</td>
+			<td>
+				<c:if test="${member.id eq comment.writer}">
+					<button id="update_btn" data-comment-update="${comment.commentNum}">UPDATE</button>
+					<button id="del_btn" data-comment-del="${comment.commentNum}">DEL</button>
+				</c:if>
+			</td>
 		</tr>
 	</c:forEach>
 </table>

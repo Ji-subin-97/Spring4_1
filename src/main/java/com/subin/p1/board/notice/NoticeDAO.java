@@ -73,5 +73,9 @@ public class NoticeDAO implements BoardDAO {
 	public Long getTotalComment(CommentsDTO commentsDTO) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getTotalComment", commentsDTO);
 	}
+	
+	public int setCommentDelete(CommentsDTO commentsDTO) throws Exception{
+		return sqlSession.delete(NAMESPACE+"setCommentDelete", commentsDTO);
+	}
 
 }

@@ -5,6 +5,10 @@
   
   <mapper namespace="com.subin.p1.board.notice.NoticeDAO">
   		
+  		<delete id="setCommentDelete" parameterType="CommentsDTO">
+  			DELETE COMMENTS WHERE COMMENTNUM=#{commentNum}
+  		</delete>
+  		
   		<select id="getTotalComment" resultType="Long" parameterType="CommentsDTO">
   			SELECT COUNT(commentNum) FROM
   			COMMENTS

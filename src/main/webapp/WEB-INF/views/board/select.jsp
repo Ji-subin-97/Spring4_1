@@ -74,6 +74,39 @@
 		<script type="text/javascript">
 			getCommentList(1);
 			
+			//Update Click Event
+			$("#commentList").on("click", "#update_btn", function() {
+				let update_num = $(this).attr("data-comment-update");
+				$("#"+update_num).html('<input type="text" name="contents">');
+				
+				
+			});
+			
+			//Del Click Event
+			$("#commentList").on("click", "#del_btn", function() {
+				let del_num = $(this).attr("data-comment-del");
+				console.log(del_num);
+				
+				$.ajax({
+					type: "POST",
+					url: "./setCommentDelete",
+					data: {commentNum: del_num},
+					success: function(result) {
+						result=result.trim();
+						alert(result);
+						if(result>0){
+							alert("삭제성공");
+							getCommentList(1);
+						}else{
+							alert("삭제실패");
+						}
+					},
+					error: function(xhr, status, error) {
+						alert("error!");
+					}
+				});
+			});
+			
 			$("#commentList").on("click", ".n", function() {
 				let pn = $(this).attr("data-comment-pn");
 				getCommentList(pn);
