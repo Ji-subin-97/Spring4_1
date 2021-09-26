@@ -21,8 +21,6 @@ import com.subin.p1.board.BoardFilesDTO;
 import com.subin.p1.board.CommentsDTO;
 import com.subin.p1.board.util.Pager;
 
-import oracle.net.aso.f;
-
 @Controller
 @RequestMapping("/notice/**")
 public class NoticeController {
@@ -33,6 +31,17 @@ public class NoticeController {
 	@ModelAttribute("board")
 	public String getBoard() {
 		return "notice";
+	}
+	
+	@PostMapping("fileDelete")
+	public ModelAndView setFileDelete(BoardFilesDTO boardFilesDTO) throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = noticeService.setFileDelete(boardFilesDTO);
+		
+		mv.setViewName("common/ajaxResult");
+		mv.addObject("result", result);
+		
+		return mv;
 	}
 	
 	@PostMapping("updateComment")

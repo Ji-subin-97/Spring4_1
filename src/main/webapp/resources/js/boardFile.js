@@ -13,6 +13,14 @@
  	let count = 0;
  	//let index = 0;
  	
+ 	function setCount(c){
+		count= c;
+	}
+	
+	function updateCount(){
+		count--;
+	}
+ 	
  	$("#add_file").click(function(){
 		
 		//index++;
