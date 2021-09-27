@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.subin.p1.board.qna.QnaDAO">
+  	
+  	<!-- Total Count 구하기 -->
+	<select id="getCount" resultType="Long" parameterType="Pager">
+		SELECT COUNT(NUM) FROM QNA
+		 	WHERE 
+           <choose>
+           	<when test="kind == 'num'">
+           		NUM
+           	</when>
+           	<when test="kind == 'title'">
+           		TITLE
+           	</when>
+           	<otherwise>
+           		CONTENTS
+           	</otherwise>
+           </choose>
+          LIKE '%' || #{search} || '%'
+	</select>
+  	
+ 	<select id="getList" resultType="QnaDTO" parameterType="Pager">
+		SELECT * FROM
+		    (SELECT ROWNUM R, BK.* FROM
+		        (SELECT *
+		            FROM QNA
+			            WHERE 
+			            <choose>
+			            	<when test="kind == 'num'">
+			            		NUM
+			            	</when>
+			            	<when test="kind == 'title'">
+			            		TITLE
+			            	</when>
+			            	<otherwise>
+			            		CONTENTS
+			            	</otherwise>
+			            </choose>
+			            LIKE '%' || #{search} || '%'
+			            ORDER BY REF DESC, STEP ASC
+		        ) 
+		        BK
+		     )
+		WHERE R between #{startRow} and #{lastRow}
+	</select>
+	
+	<select id="getFile" parameterType="BoardDTO" resultType="BoardFilesDTO">
+		SELECT * FROM qnaFiles WHERE NUM = #{num} 
+	</select>
+	
+	<select id="getSelect" parameterType="BoardDTO" resultType="QnaDTO">
+			SELECT * FROM QNA WHERE NUM = #{num}
+	</select>
+	
+	<insert id="setInsert" parameterType="BoardDTO">
+		<selectKey order="BEFORE" resultType="Long" keyProperty="num">
+			SELECT QNA_NUM_SEQ.NEXTVAL FROM DUAL
+		</selectKey>
+		INSERT INTO QNA (NUM, TITLE, CONTENTS, WRITER, REGDATE, HITS, REF, STEP, DEPTH)
+		VALUES (#{num}, #{title}, #{contents}, #{writer}, SYSDATE, 0, qna_num_seq.currval, 0, 0)
+	</insert>
+	
+	<delete id="setDelete" parameterType="BoardDTO">
+		DELETE FROM QNA WHERE NUM=#{num}
+	</delete>
+	
+	<update id="setUpdate" parameterType="BoardDTO">
+		UPDATE QNA SET TITLE=#{title},CONTENTS=#{contents},WRITER=#{writer} 
+		WHERE NUM=#{num}
+	</update>
+	
+	<update id="setReplyUpdate" parameterType="QnaDTO">
+		UPDATE QNA SET STEP = STEP + 1 WHERE REF = #{ref} AND STEP > #{step}
+	</update>
+	
+	<insert id="setReply" parameterType="QnaDTO">
+		INSERT INTO QNA (NUM, TITLE, CONTENTS, WRITER, REGDATE, HITS, REF, STEP, DEPTH)
+		VALUES (QNA_NUM_SEQ.nextval, #{title}, #{contents}, #{writer}, SYSDATE, 0, #{ref}, #{step}, #{depth})
+	</insert>
+	
+	<insert id="setFile" parameterType="BoardFilesDTO">
+		INSERT INTO qnaFiles (fileNum, num, fileName, oriName)
+		VALUES (mf_num_seq.nextval, #{num}, #{fileName}, #{oriName})
+	</insert>
+  
+ </mapper>
