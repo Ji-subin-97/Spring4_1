@@ -23,13 +23,32 @@
 		
 		</c:if>
 		
-		<h1 id="ar"></h1>
+		<div>
+			<table id="r" class="table table-hover">
+				<tr>
+					<td>ID</td>
+					<td>TITLE</td>
+					<td>USERID</td>
+				</tr>
+			</table>
+		</div>
 		<button id="btn">CLICK</button>
+		
 		<script type="text/javascript">
-			$("#btn").click(function(){
-				$.get("./ajax/t1?num=1", function (result) {
-					console.log(result.trim());
-					$('#ar').html(result.trim());
+			$("#btn").click(function() {
+				$.ajax({
+					type: "GET",
+					url: "http://jsonplaceholder.typicode.com/posts",
+					success: function(result) {
+						console.log(result);
+						console.log(result[0]);
+						console.log(result[0].title);
+						
+						for(v1 of result){
+							$("#r").append("<tr><td>"+ v1.id +"</td><td>"+ v1.title +"</td><td>"+ v1.userId +"</td></tr>");
+						}
+					}
+					
 				});
 			});
 		</script>
