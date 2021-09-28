@@ -91,7 +91,7 @@
 				
 				$.ajax({
 					type: "POST",
-					url: "./updateComment",
+					url: "./comment/updateComment",
 					data:{
 						commentNum: commentNum,
 						contents: contents
@@ -126,7 +126,7 @@
 				
 				$.ajax({
 					type: "POST",
-					url: "./setCommentDelete",
+					url: "./comment/setCommentDelete",
 					data: {commentNum: del_num},
 					success: function(result) {
 						result=result.trim();
@@ -154,7 +154,7 @@
 				
 				$.ajax({
 					type: "GET",
-					url: "./getCommentList",
+					url: "./comment/getCommentList",
 					data: {
 						num: num,
 						pn: pageNumber

@@ -44,7 +44,7 @@ public class NoticeController {
 		return mv;
 	}
 	
-	@PostMapping("updateComment")
+	@PostMapping("comment/updateComment")
 	public ModelAndView setCommentUpdate(CommentsDTO commentsDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = noticeService.setCommentUpdate(commentsDTO);
@@ -55,7 +55,7 @@ public class NoticeController {
 		return mv;
 	}
 	
-	@PostMapping("setCommentDelete")
+	@PostMapping("comment/setCommentDelete")
 	public ModelAndView setCommentDelete(CommentsDTO commentsDTO) throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = noticeService.setCommentDelete(commentsDTO);
@@ -65,7 +65,7 @@ public class NoticeController {
 		return mv;
 	}
 	
-	@GetMapping("getCommentList")
+	@GetMapping("comment/getCommentList")
 	public ModelAndView getCommentList(CommentsDTO commentsDTO, Pager pager) throws Exception{
 		commentsDTO.setBoard("N");
 		List<CommentsDTO> ar = noticeService.getCommentList(commentsDTO, pager);
