@@ -1,6 +1,7 @@
 package com.subin.p1.board.notice;
 
 import java.util.List;
+import java.util.Random;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -110,6 +112,15 @@ public class NoticeController {
 		List<BoardDTO> ar = noticeService.getList(pager);
 		mv.addObject("list", ar);
 		mv.addObject("pager", pager);
+
+		return mv;
+	}
+	
+	//예외 처리 메서드
+	@ExceptionHandler(Exception.class)
+	public ModelAndView getException() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("error/serverError");
 		
 		return mv;
 	}
